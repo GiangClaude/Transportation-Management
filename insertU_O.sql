@@ -1,20 +1,20 @@
 use qlgv;
 INSERT INTO AccUser (UserID, LastName, MiddleName, FirstName, Birthday, Gender, Phone, City, District, Ware, Address) VALUES
-('U001', 'Le', 'Thi', 'Cuc', '2003-03-25', 'Nu', '0934567890', 'Hue', 'Phu Hoi', 'Phu Nhuan', 'So 6 Phu Nhuan'),
-('U002', 'Ngo', 'Van', 'Khoa', '2003-02-04', 'Nam', '0989012345', 'Quang Tri', 'Hai Lang', 'Thi tran Lang Co', '723 Duong Truong Son'),
-('U003', 'Tran', 'Van', 'Quang', '2007-12-01', 'Nam', '0934567089', 'Ha Noi', 'Hai Ba Trung', 'Thanh Nhan', '456 Duong Le Dai Hanh'),
-('U004', 'Pham', 'Van', 'Dung', '1975-04-14', 'Nam', '0945678901', 'TP. Ho Chi Minh', 'Binh Thanh', 'Phuong 11', '123 Duong D2'),
-('U005', 'Bui', 'Van', 'Minh', '1981-10-23', 'Nam', '0912345076', 'Bac Giang', 'Yen The', 'Xa Yen The', '45 Duong Dong Lac'),
-('U006', 'Nguyen', 'Van', 'An', '2001-01-12', 'Nam', '0912345678', 'Ha Noi', 'Hoan Kiem', 'Phuong Trang Tien', '723 Pho Hue'),
-('U007', 'Vo', 'Thi', 'Mai', '2000-03-25', 'Nu', '0962234123', 'Thai Nguyen', 'Thanh pho Thai Nguyen', 'Phuong Quang Vinh', '449 Duong Quang Trung'),
-('U008', 'Đo', 'Thi', 'Quynh', '1995-07-15', 'Nu', '0978901234', 'Ha Noi', 'Hoan Kiem', 'Phuong Hang Bai', '875 Pho Trang Tien'),
-('U009', 'Tran', 'Thi', 'Bich', '2002-02-16', 'Nu', '0923456789', 'TP. Ho Chi Minh', 'Quan 1', 'Phuong 9', '789 Duong Nguyen Van Nghi'),
-('U010', 'Hoang', 'Van', 'Phong', '1992-07-10', 'Nam', '0967890123', 'TP. Ho Chi Minh', 'Go Vap', 'Phường Phú Nhuận', '185 Hùng Vương'),
-('U011', 'Le', 'Thi', 'Hanh', '1984-01-02', 'Nu', '0945678091', 'Tien Giang', 'Cai Lay', 'Thi tran Cai Lay', '123 Duong My Thanh An'),
-('U012', 'Vo', 'Thi', 'Em', '2002-12-05', 'Nu', '0956789012', 'Can Tho', 'Cai Rang', 'An Khanh', 'So 14 An Khanh'),
-('U013', 'Duong', 'Thi', 'Lan', '1997-09-25', 'Nu', '0990123456', 'Hai Phong', 'Ngo Quyen', 'Le Chan', 'So 23A Le Chan'),
-('U014', 'Tran', 'Van', 'Minh', '1996-09-22', 'Nam', '0952389012', 'Lao Cai', 'Huyen Sa Pa', 'Xa Sa Pa', '333 Duong Phan Xi Pang'),
-('U015', 'Nguyen', 'Thi', 'Ngoc', '2007-11-05', 'Nu', '0923456078', 'Ha Noi', 'Long Bien', 'Phuong Ngoc Lam', '24 Ngo Tram');
+('U001', 'Le', 'Thi', 'Cuc', '2003-03-25', 'Nu', '0948719302', 'Hue', 'Phu Hoi', 'Phu Nhuan', 'So 6 Phu Nhuan'),
+('U002', 'Ngo', 'Van', 'Khoa', '2003-02-04', 'Nam', '0993028471', 'Quang Tri', 'Hai Lang', 'Thi tran Lang Co', '723 Duong Truong Son'),
+('U003', 'Tran', 'Van', 'Quang', '2007-12-01', 'Nam', '0965791834', 'Ha Noi', 'Hai Ba Trung', 'Thanh Nhan', '456 Duong Le Dai Hanh'),
+('U004', 'Pham', 'Van', 'Dung', '1975-04-14', 'Nam', '0920475186', 'TP. Ho Chi Minh', 'Binh Thanh', 'Phuong 11', '123 Duong D2'),
+('U005', 'Bui', 'Van', 'Minh', '1981-10-23', 'Nam', '0931867249', 'Bac Giang', 'Yen The', 'Xa Yen The', '45 Duong Dong Lac'),
+('U006', 'Nguyen', 'Van', 'An', '2001-01-12', 'Nam', '0952938416', 'Ha Noi', 'Hoan Kiem', 'Phuong Trang Tien', '723 Pho Hue'),
+('U007', 'Vo', 'Thi', 'Mai', '2000-03-25', 'Nu', '0986432079', 'Thai Nguyen', 'Thanh pho Thai Nguyen', 'Phuong Quang Vinh', '449 Duong Quang Trung'),
+('U008', 'Đo', 'Thi', 'Quynh', '1995-07-15', 'Nu', '0975098134', 'Ha Noi', 'Hoan Kiem', 'Phuong Hang Bai', '875 Pho Trang Tien'),
+('U009', 'Tran', 'Thi', 'Bich', '2002-02-16', 'Nu', '0969273815', 'TP. Ho Chi Minh', 'Quan 1', 'Phuong 9', '789 Duong Nguyen Van Nghi'),
+('U010', 'Hoang', 'Van', 'Phong', '1992-07-10', 'Nam', '0947162930', 'TP. Ho Chi Minh', 'Go Vap', 'Phường Phú Nhuận', '185 Hùng Vương'),
+('U011', 'Le', 'Thi', 'Hanh', '1984-01-02', 'Nu', '0920395847', 'Tien Giang', 'Cai Lay', 'Thi tran Cai Lay', '123 Duong My Thanh An'),
+('U012', 'Vo', 'Thi', 'Em', '2002-12-05', 'Nu', '0918937460', 'Can Tho', 'Cai Rang', 'An Khanh', 'So 14 An Khanh'),
+('U013', 'Duong', 'Thi', 'Lan', '1997-09-25', 'Nu', '0957681029', 'Hai Phong', 'Ngo Quyen', 'Le Chan', 'So 23A Le Chan'),
+('U014', 'Tran', 'Van', 'Minh', '1996-09-22', 'Nam', '0949302781', 'Lao Cai', 'Huyen Sa Pa', 'Xa Sa Pa', '333 Duong Phan Xi Pang'),
+('U015', 'Nguyen', 'Thi', 'Ngoc', '2007-11-05', 'Nu', '0972839415', 'Ha Noi', 'Long Bien', 'Phuong Ngoc Lam', '24 Ngo Tram');
 select * from accuser;
 #Cái dưới này để nếu sai thì xóa nhập lại thui
 delete from accuser
