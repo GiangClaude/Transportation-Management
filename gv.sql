@@ -22,7 +22,7 @@ CREATE TABLE Product (
     DeliveryWard VARCHAR(45),
     DeliveryAddress VARCHAR(45) not null,
     RecipientName VARCHAR(30) not null,
-    PhoneRecipient VARCHAR(15) not null,
+    PhoneRecipient VARCHAR(15) not null unique,
     CurrentWarehouseID CHAR(5) default 'K000',
     OrderStatus VARCHAR(20) default 'Dang xu ly'
 );
