@@ -9,8 +9,8 @@ CREATE TABLE Shipper (
     Birthday DATE,
     Phone VARCHAR(10) unique not null,
     Address VARCHAR(45) not null,
-	Ward VARCHAR(45),
-	District VARCHAR(45),
+    Ward VARCHAR(45),
+    District VARCHAR(45),
     City VARCHAR(30)
 );
 INSERT INTO Shipper (EmployeeID, LastName, MiddleName, FirstName, Gender, Birthday, Phone, Address, Ward, District, City)
@@ -81,7 +81,7 @@ VALUES
     ('S204', 'Express', '300', 40000),
     ('S205', 'Express', NULL, 56000),
     ('S301', 'LargeItem', '50', 40000),
-	('S302', 'LargeItem', '100', 67000),
+    ('S302', 'LargeItem', '100', 67000),
     ('S303', 'LargeItem', '200', 88000),
     ('S304', 'LargeItem', '300', 115000),
     ('S305', 'LargeItem', NULL , 132000);
