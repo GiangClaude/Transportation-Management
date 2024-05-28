@@ -109,3 +109,9 @@ create table OrderDetails (
     constraint DetailsID primary key (ItemID, OrderID),
     FOREIGN KEY (OrderID) REFERENCES Product(OrderID)
 );
+
+create table Surcharge (
+	SurchargeID char(5) primary key,
+    SurchargeName varchar(20),
+    Price decimal(5,2)
+);
