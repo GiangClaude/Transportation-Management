@@ -24,7 +24,6 @@ CREATE TABLE Product (
     RecipientName VARCHAR(30) not null,
     PhoneRecipient VARCHAR(15) not null unique,
     CurrentWarehouseID CHAR(5) default 'K000',
-    OrderStatus VARCHAR(20) default 'Dang xu ly'
     OrderStatus VARCHAR(20) default 'Dang xu ly',
     ServiceID CHAR(5)
     #FOREIGN KEY (ServiceID) REFERENCES Service(ServiceID)
@@ -45,8 +44,6 @@ CREATE TABLE ImportExport (
     InboundDate DATE not null,
     OutboundDate DATE default NUll,
     constraint ID primary key (WarehouseID, OrderID),
-    FOREIGN KEY (WarehouseID) REFERENCES Warehouse(WarehouseID),
-    FOREIGN KEY (OrderID) REFERENCES Product(OrderID)
     constraint Warehouse_ID foreign key (WarehouseID) REFERENCES Warehouse(WarehouseID)
     on delete cascade
 	on update cascade,
@@ -74,8 +71,6 @@ CREATE TABLE OrderCreate (
     OrderID CHAR(5),
     OrderDate DATE not null,
     constraint Create_ID primary key (UserID, OrderID),
-    FOREIGN KEY (UserID) REFERENCES AccUser(UserID),
-    FOREIGN KEY (OrderID) REFERENCES Product(OrderID)
     constraint User_ID foreign key (UserID) REFERENCES AccUser(UserID)
     on delete cascade
 	on update cascade,
@@ -105,8 +100,6 @@ CREATE TABLE Send (
     EstimatedDate DATE,
     ActualDate DATE,
     constraint SendID primary key (EmployeeID, OrderID),
-    FOREIGN KEY (EmployeeID) REFERENCES Shipper(EmployeeID),
-    FOREIGN KEY (OrderID) REFERENCES Product(OrderID)
     constraint Employee_ID foreign key (EmployeeID) REFERENCES Shipper(EmployeeID)
     on delete cascade
 	on update cascade,
@@ -122,23 +115,13 @@ CREATE TABLE Service (
     MaxDistance SMALLINT
 );
 
-CREATE TABLE UseService (
-    OrderID CHAR(5),
-    ServiceID CHAR(5),
-    constraint UseServiceID primary key (ServiceID, OrderID),
-    FOREIGN KEY (OrderID) REFERENCES Product(OrderID),
-    FOREIGN KEY (ServiceID) REFERENCES Service(ServiceID)
-);
-
 create table OrderDetails (
     ItemID char(10),
     OrderID char(5),
     ItemName varchar(30) not null,
-    ItemType varchar(20),
     SurchargeID varchar(20),
     Weight decimal(18,2) not null,
     constraint DetailsID primary key (ItemID, OrderID),
-    FOREIGN KEY (OrderID) REFERENCES Product(OrderID)
     constraint foreign key (OrderID) REFERENCES Product(OrderID)
     on delete cascade
 	on update cascade,
@@ -146,7 +129,6 @@ create table OrderDetails (
     on delete cascade
 	on update cascade
 );
-
 create table Surcharge (
 	SurchargeID char(5) primary key,
     SurchargeName varchar(20),
