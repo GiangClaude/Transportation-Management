@@ -102,7 +102,68 @@ INSERT INTO Product (OrderID, Total, Payer, PickupCity, PickupDistrict, PickupWa
  'So 233 Tinh Son', '0954781234', 'W001', 'Dang xu ly'),
 ('P020', 140000.00, 'Nguoi gui', 'Da Nang', 'Thanh Khe', 'Hoa Khanh Bac',
  'So 41 Hoa Khanh Bac', 'Tran Hoang Hien', 'Gia Lai', 'Pleiku', 'Chu Se',
- 'So 188 Chu Se', '0925781234', 'W012', 'Dang giao hang');
+ 'So 188 Chu Se', '0925781234', 'W012', 'Dang giao hang'),
+('P021', 500000, 'Nguoi gui', 'Ha Noi', 'Dong Da', 'Cat Linh', 
+'123 Duong Cat Linh', 'Nguyen Van A', 'Hai Phong', 'Le Chan', 'Dinh Dong',
+ '456 Duong Dinh Dong', '0912345678', 'W001', 'Dang giao hang'),
+('P022', 750000, 'Nguoi nhan', 'Hai Phong', 'Ngo Quyen', 'Dong Khe',
+ '789 Duong Dong Khe', 'Tran Thi B', 'Ha Noi', 'Cau Giay', 'Quan Hoa', 
+ '123 Duong Quan Hoa', '0923456789', 'W002', 'Da giao hang'),
+('P023', 300000, 'Nguoi gui', 'Da Nang', 'Hai Chau', 'Hoa Cuong', 
+'456 Duong Hoa Cuong', 'Le Van C', 'Hue', 'Phu Hoi', 'Phu Nhuan',
+ '789 Duong Phu Nhuan', '0934567890', 'W003', 'Dang giao hang'),
+('P024', 650000, 'Nguoi nhan', 'Hue', 'Phu Nhuan', 'Phu Hoi', 
+'123 Duong Phu Hoi', 'Pham Thi D', 'Da Nang', 'Son Tra', 'An Hai', 
+'456 Duong An Hai', '0945678901', 'W004', 'Dang giao hang'),
+('P025', 850000, 'Nguoi gui', 'Ho Chi Minh', 'Quan 1', 'Ben Nghe', 
+'789 Duong Ben Nghe', 'Nguyen Van E', 'Can Tho', 'Ninh Kieu', 'An Hoa', 
+'123 Duong An Hoa', '0956789012', 'W005', 'Da giao hang'),
+('P026', 400000, 'Nguoi nhan', 'Can Tho', 'Binh Thuy', 'Long Hoa', 
+'456 Duong Long Hoa', 'Tran Thi F', 'Ho Chi Minh', 'Binh Thanh', 'Phuong 26',
+ '789 Duong Phuong 26', '0967890123', 'W006', 'Dang giao hang'),
+('P027', 950000, 'Nguoi gui', 'Hai Duong', 'Hai Duong', 'Nguyen Trai', 
+'123 Duong Nguyen Trai', 'Le Van G', 'Quang Ninh', 'Ha Long', 'Bai Chay', 
+'456 Duong Bai Chay', '0978901234', 'W007', 'Da giao hang'),
+('P028', 550000, 'Nguoi nhan', 'Quang Ninh', 'Cam Pha', 'Cam Trung', 
+'789 Duong Cam Trung', 'Pham Thi H', 'Hai Duong', 'Cam Giang', 'Cam Phuc', 
+'123 Duong Cam Phuc', '0989012345', 'W008', 'Dang giao hang'),
+('P029', 600000, 'Nguoi gui', 'Nam Dinh', 'Nam Truc', 'Truc Hung', 
+'456 Duong Truc Hung', 'Nguyen Van I', 'Thai Binh', 'Kien Xuong', 'Minh Quang', 
+'789 Duong Minh Quang', '0990123456', 'W009', 'Da giao hang'),
+('P030', 700000, 'Nguoi nhan', 'Thai Binh', 'Dong Hung', 'Dong Kinh', 
+'123 Duong Dong Kinh', 'Tran Thi J', 'Nam Dinh', 'My Loc', 'My Thuan', 
+'456 Duong My Thuan', '0901234567', 'W010', 'Dang giao hang'),
+('P031', 800000, 'Nguoi gui', 'Ha Noi', 'Ba Dinh', 'Ngoc Ha', 
+'123 Duong Ngoc Ha', 'Hoang Van K', 'Hai Phong', 'Hong Bang', 'Thuong Ly', 
+'456 Duong Thuong Ly', '0912345679', 'W011', 'Dang giao hang'),
+('P032', 600000, 'Nguoi nhan', 'Hai Phong', 'Kien An', 'Nam Son', 
+'789 Duong Nam Son', 'Nguyen Thi L', 'Ha Noi', 'Dong Da', 'Van Mieu', 
+'123 Duong Van Mieu', '0923456780', 'W012', 'Da giao hang'),
+('P033', 450000, 'Nguoi gui', 'Da Nang', 'Thanh Khe', 'Chinh Gian', 
+'456 Duong Chinh Gian', 'Le Thi M', 'Hue', 'Vinh Ninh', 'Phu Hoi', 
+'789 Duong Phu Hoi', '0934567891', 'W013', 'Dang giao hang'),
+('P034', 700000, 'Nguoi nhan', 'Hue', 'An Cuu', 'Thuy Bieu', 
+'123 Duong Thuy Bieu', 'Pham Van N', 'Da Nang', 'Lien Chieu', 'Hoa Khanh', 
+'456 Duong Hoa Khanh', '0945678902', 'W014', 'Dang giao hang'),
+('P035', 850000, 'Nguoi gui', 'Ho Chi Minh', 'Tan Binh', 'Tan Son Nhat', 
+'789 Duong Tan Son Nhat', 'Nguyen Thi O', 'Can Tho', 'Cai Rang', 'Le Binh', 
+'123 Duong Le Binh', '0956789013', 'W015', 'Da giao hang'),
+('P036', 520000, 'Nguoi nhan', 'Can Tho', 'Phong Dien', 'Nhon Nghia', 
+'456 Duong Nhon Nghia', 'Tran Van P', 'Ho Chi Minh', 'Go Vap', 'Phuong 17', 
+'789 Duong Phuong 17', '0967890124', 'W001', 'Dang giao hang'),
+('P037', 930000, 'Nguoi gui', 'Hai Duong', 'Binh Giang', 'Van Giang', 
+'123 Duong Van Giang', 'Le Thi Q', 'Quang Ninh', 'Uong Bi', 'Phuong Bac Son', 
+'456 Duong Bac Son', '0978901235', 'W017', 'Da giao hang'),
+('P038', 580000, 'Nguoi nhan', 'Quang Ninh', 'Dong Trieu', 'Xuan Son', 
+'789 Duong Xuan Son', 'Pham Van R', 'Hai Duong', 'Kim Thanh', 'Dong Cac', 
+'123 Duong Dong Cac', '0989012346', 'W018', 'Dang giao hang'),
+('P039', 620000, 'Nguoi gui', 'Nam Dinh', 'Truc Ninh', 'Nam Tien', 
+'456 Duong Nam Tien', 'Nguyen Thi S', 'Thai Binh', 'Thai Thuy', 'Thuy Ha', 
+'789 Duong Thuy Ha', '0990123457', 'W019', 'Da giao hang'),
+('P040', 710000, 'Nguoi nhan', 'Thai Binh', 'Tien Hai', 'Dong Hai', 
+'123 Duong Dong Hai', 'Tran Van T', 'Nam Dinh', 'Y Yen', 'Y Hoa', 
+'456 Duong Y Hoa', '0901234568', 'W020', 'Dang giao hang');
+
 select * from product
 order by OrderID asc;
 #Cái dưới này để nếu sai thì xóa nhập lại thui
@@ -111,13 +172,14 @@ where OrderID like "P%";
 
 insert into Surcharge (SurchargeID, SurchargeName, Price)
 values 
-	('SU001', 'COD', '0.05'),
     ('SU002', 'Hang gia tri cao', '0.01'),
     ('SU003', 'Hang de vo', '0.1'),
     ('SU004', 'Hang cong kenh', '0.2'),
     ('SU005', 'Chat long', '0.08'),
     ('SU006', 'Hang dong lanh', '0.1');
 select * from Surcharge;
+delete from surcharge
+where surchargeID like "SU%";
 
 
 
