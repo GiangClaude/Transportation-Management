@@ -88,6 +88,15 @@ order by OrderID asc;
 delete from product
 where OrderID like "P%";
 
+insert into Surcharge (SurchargeID, SurchargeName, Price)
+values 
+	('SU001', 'COD', '0.05'),
+    ('SU002', 'Hang gia tri cao', '0.01'),
+    ('SU003', 'Hang de vo', '0.1'),
+    ('SU004', 'Hang cong kenh', '0.2'),
+    ('SU005', 'Chat long', '0.08'),
+    ('SU006', 'Hang dong lanh', '0.1');
+select * from Surcharge;
 
 
 
