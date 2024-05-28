@@ -26,9 +26,6 @@ CREATE TABLE Product (
     CurrentWarehouseID CHAR(5) default 'K000',
     OrderStatus VARCHAR(20) default 'Dang xu ly',
     ServiceID CHAR(5)
-    #FOREIGN KEY (ServiceID) REFERENCES Service(ServiceID)
-    #on delete cascade
-    #on update cascade
 );
 ALTER TABLE Product
 add ServiceID char(5);
