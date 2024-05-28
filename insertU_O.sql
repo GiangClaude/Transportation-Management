@@ -14,7 +14,28 @@ INSERT INTO AccUser (UserID, LastName, MiddleName, FirstName, Birthday, Gender, 
 ('U012', 'Vo', 'Thi', 'Em', '2002-12-05', 'Nu', '0918937460', 'Can Tho', 'Cai Rang', 'An Khanh', 'So 14 An Khanh'),
 ('U013', 'Duong', 'Thi', 'Lan', '1997-09-25', 'Nu', '0957681029', 'Hai Phong', 'Ngo Quyen', 'Le Chan', 'So 23A Le Chan'),
 ('U014', 'Tran', 'Van', 'Minh', '1996-09-22', 'Nam', '0949302781', 'Lao Cai', 'Huyen Sa Pa', 'Xa Sa Pa', '333 Duong Phan Xi Pang'),
-('U015', 'Nguyen', 'Thi', 'Ngoc', '2007-11-05', 'Nu', '0972839415', 'Ha Noi', 'Long Bien', 'Phuong Ngoc Lam', '24 Ngo Tram');
+('U015', 'Nguyen', 'Thi', 'Hong', '2007-11-05', 'Nu', '0972839415', 'Ha Noi', 'Long Bien', 'Phuong Ngoc Lam', '24 Ngo Tram'),
+('U016', 'Nguyen', 'Thi', 'Lan', '1990-05-16', 'Nu', '0906946044', 'Da Nang', 'Hai Chau', 'Thuan Phuoc', 'So 45 Thuan Phuoc'),
+('U017', 'Tran', 'Van', 'Son', '1985-11-02', 'Nam', '0961742337', 'Hai Phong', 'Le Chan', 'An Duong', '108 Duong An Duong'),
+('U018', 'Pham', 'Thi', 'Hue', '1992-08-23', 'Nu', '0987396094', 'Can Tho', 'Ninh Kieu', 'An Hoa', '294 Duong 3/2'),
+('U019', 'Le', 'Van', 'Hai', '1988-04-10', 'Nam', '0942326688', 'Da Nang', 'Lien Chieu', 'Hoa Khanh', '886 Duong Hoang Van Thai'),
+('U020', 'Do', 'Thi', 'Linh', '2008-09-14', 'Nu', '0958885686', 'Ha Noi', 'Ba Dinh', 'Ngoc Ha', '035 Duong Hoang Hoa Tham'),
+('U021', 'Hoang', 'Van', 'Tuan', '1991-03-21', 'Nam', '0975079386', 'Hue', 'Phu Vang', 'Phu An', '632 Duong Phu An'),
+('U022', 'Vu', 'Thi', 'Thu', '1996-12-30', 'Nu', '0994725645', 'Quang Ninh', 'Ha Long', 'Bai Chay', '313 Duong Ha Long'),
+('U023', 'Ly', 'Van', 'Thanh', '2003-07-25', 'Nam', '0960372201', 'Nam Dinh', 'Nam Truc', 'Truc Hung', '505 Duong Truc Hung'),
+('U024', 'Ngo', 'Thi', 'Mai', '1993-02-18', 'Nu', '0990451077', 'Hai Duong', 'Cam Giang', 'Cam Phuc', '206 Duong Cam Phuc'),
+('U025', 'Bui', 'Van', 'Hung', '1987-10-05', 'Nam', '0917414710', 'Bac Giang', 'Yen The', 'Xa Yen The', '99 Duong Dong Lac'),
+('U026', 'Nguyen', 'Van', 'Hung', '1990-06-12', 'Nam', '0955932843', 'Thanh Hoa', 'Hoang Hoa', 'Hoang Duc', '89 Duong Hoang Duc'),
+('U027', 'Tran', 'Thi', 'Hanh', '2001-03-22', 'Nu', '0901064092', 'Phu Tho', 'Viet Tri', 'Tien Cat', '86 Duong Tien Cat'),
+('U028', 'Pham', 'Van', 'Luan', '1994-11-11', 'Nam', '0917649751', 'Quang Binh', 'Dong Hoi', 'Hai Dinh', '117 Duong Hai Dinh'),
+('U029', 'Le', 'Thi', 'Dao', '1997-08-19', 'Nu', '0923333218', 'Ninh Binh', 'Ninh Hoa', 'Hoa Lu', '19 Duong Hoa Lu'),
+('U030', 'Hoang', 'Van', 'Khanh', '1985-04-14', 'Nam', '0987232244', 'Ha Nam', 'Phu Ly', 'Trieu Duong', '26 Duong Trieu Duong'),
+('U031', 'Do', 'Thi', 'Xuan', '2003-09-10', 'Nu', '0970892815', 'Nghe An', 'Vinh', 'Hung Dung', '444 Duong Hung Dung'),
+('U032', 'Vu', 'Van', 'Tuan', '1990-12-29', 'Nam', '0907113310', 'Quang Ngai', 'Son Tinh', 'Tinh Son', '176 Duong Tinh Son'),
+('U033', 'Nguyen', 'Thi', 'Lan', '1992-11-16', 'Nu', '0981902291', 'Bac Giang', 'Hiep Hoa', 'Thang', '505 Duong Thang'),
+('U034', 'Tran', 'Van', 'Kiet', '1988-05-18', 'Nam', '0974627239', 'Binh Duong', 'Di An', 'Tan Dong Hiep', '845 Duong Tan Dong Hiep'),
+('U035', 'Pham', 'Thi', 'Hong', '1995-07-25', 'Nu', '0939109692', 'Ben Tre', 'Chau Thanh', 'Tam Phuoc', '41 Duong Tam Phuoc');
+
 select * from accuser;
 #Cái dưới này để nếu sai thì xóa nhập lại thui
 delete from accuser
