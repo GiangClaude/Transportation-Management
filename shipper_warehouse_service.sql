@@ -66,22 +66,28 @@ CREATE TABLE Service (
     ServiceID CHAR(5) PRIMARY KEY,
     ServiceName VARCHAR(20),
     Price DECIMAL(12,3) not null,
-    MaxDistance SMALLINT
+    MaxDistance CHAR(5)
 );
 INSERT INTO Service (ServiceID, ServiceName, MaxDistance, Price)
 VALUES
     ('S101', 'Economy', '50', 10000),
-    ('S102', 'Economy', '100', 22000),
-    ('S103', 'Economy', '200', 26000),
-    ('S104', 'Economy', '300', 32000),
-    ('S105', 'Economy', NULL, 48000),
-    ('S201', 'Express', '50', 18000),
-    ('S202', 'Express', '100', 30000),
-    ('S203', 'Express', '200', 34000),
-    ('S204', 'Express', '300', 40000),
-    ('S205', 'Express', NULL, 56000),
-    ('S301', 'LargeItem', '50', 40000),
-    ('S302', 'LargeItem', '100', 67000),
-    ('S303', 'LargeItem', '200', 88000),
-    ('S304', 'LargeItem', '300', 115000),
-    ('S305', 'LargeItem', NULL , 132000);
+    ('S102', 'Economy', '100', 18000),
+    ('S103', 'Economy', '200', 22000),
+    ('S104', 'Economy', '300', 28000),
+    ('S105', 'Economy', '500', 34000),
+    ('S106', 'Economy', '800', 40000),
+    ('S107', 'Economy', '>800', 47000),
+    ('S201', 'Express', '50', 15000),
+    ('S202', 'Express', '100', 23000),
+    ('S203', 'Express', '200', 29000),
+    ('S204', 'Express', '300', 35000),
+    ('S205', 'Express', '500', 41000),
+    ('S206', 'Express', '800', 47000),
+    ('S207', 'Express', '>800', 54000),
+    ('S301', 'LargeItem', '50', 35000),
+	('S302', 'LargeItem', '100', 49000),
+    ('S303', 'LargeItem', '200', 63000),
+    ('S304', 'LargeItem', '300', 77000),
+    ('S305', 'LargeItem', '500' , 91000);
+    ('S306', 'LargeItem', '800' , 105000);
+    ('S307', 'LargeItem', '>800' , 119000);
