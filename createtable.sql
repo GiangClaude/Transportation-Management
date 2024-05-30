@@ -17,6 +17,8 @@ CREATE TABLE Service (
     Price DECIMAL(12,3) not null,
     MaxDistance SMALLINT
 );
+alter table Service
+modify MaxDistance char(6); 
 
 # tao bang don hang
 CREATE TABLE Product (
@@ -139,5 +141,12 @@ create table OrderDetails (
     on delete cascade
 	on update cascade
 );
+alter table OrderDetails
+modify itemprice decimal(20,3);
+
+alter table orderdetails 
+drop primary key;   
+alter table orderdetails
+add primary key(ItemID); 
 
 
