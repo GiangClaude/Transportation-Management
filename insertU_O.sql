@@ -200,11 +200,13 @@ where OrderID like "P%";
 
 insert into Surcharge (SurchargeID, SurchargeName, Price)
 values 
+    ('SU001', 'Hang thong thuong', '0.00'),
     ('SU002', 'Hang gia tri cao', '0.01'),
     ('SU003', 'Hang de vo', '0.1'),
     ('SU004', 'Hang cong kenh', '0.2'),
     ('SU005', 'Chat long', '0.08'),
-    ('SU006', 'Hang dong lanh', '0.1');
+    ('SU006', 'Hang dong lanh', '0.1'),
+    ('SU007', 'Hang dien tu', '0.1');
 select * from Surcharge;
 delete from surcharge
 where surchargeID like "SU%";
@@ -371,8 +373,71 @@ VALUES
  '55 Nguyen Luong Bang', 'Bui Van T', '0916789012', 'W010', 'Dang xu ly', 'S204');
 
 
+#orderdetails
 
-
+insert into OrderDetails(ItemID, OrderID, ItemName, SurchargeID, Weight, itemprice)
+values
+('IID001', 'P002', 'Laptop Gamming Lenovo', 'SU007', 2.5, 25000000),
+('IID002', 'P002', 'Mouse', 'SU007', 0.1, 100000),
+('IID003', 'P003', 'Keyboard', 'SU007', 0.7, 1000000),
+('IID004', 'P004', 'Monitor', 'SU007', 5.0, 4000000),
+('IID005', 'P005', 'Printer', 'SU007', 8.0, 10000000),
+('IID006', 'P006', 'Scanner', 'SU007', 3.2, 5000000),
+('IID007', 'P007', 'Tablet', 'SU007', 0.8, 10000000),
+('IID008', 'P008', 'Charger', 'SU007', 0.2, 50000),
+('IID009', 'P008', 'Iphone 14 promax', 'SU007', 0.4, 25000000),
+('IID010', 'P010', 'Earphones', 'SU007', 0.05, 5000000),
+('IID011', 'P011', 'But bi', 'SU001', 0.02, 10000),
+('IID012', 'P012', 'Vo ghi chep', 'SU001', 0.5, 100000),
+('IID013', 'P013', 'Cap sach', 'SU001', 0.7, 400000),
+('IID014', 'P014', 'Hop but', 'SU001', 0.1, 200000),
+('IID015', 'P015', 'Bang trang', 'SU001', 0.1, 50000),
+('IID016', 'P016', 'But long', 'SU001', 0.03, 100000),
+('IID017', 'P017', 'But chi mau', 'SU001', 0.2, 60000),
+('IID018', 'P018', 'Got but chi', 'SU001', 0.05, 70000),
+('IID019', 'P019', 'Keo', 'SU001', 0.15, 100000),
+('IID020', 'P020', 'Thuoc ke', 'SU001', 0.1, 50000),
+('IID021', 'P021', 'Giay A4', 'SU001', 0.5, 100000),
+('IID022', 'P022', 'Giay in mau', 'SU001', 1.0, 90000),
+('IID023', 'P023', 'So tay', 'SU001', 0.3, 30000),
+('IID024', 'P024', 'Ghim bam', 'SU001', 0.02, 100000),
+('IID025', 'P025', 'Bang keo', 'SU001', 0.1, 50000),
+('IID026', 'P026', 'Kep giay', 'SU001', 0.02, 70000),
+('IID027', 'P027', 'Dao roc giay', 'SU001', 0.05, 200000),
+('IID028', 'P028', 'Bia cung', 'SU001', 0.3, 100000),
+('IID029', 'P029', 'Bang dinh', 'SU001', 0.08, 50000),
+('IID030', 'P030', 'Cuc tay', 'SU001', 0.02,70000),
+('IID031', 'P031', 'Giay note', 'SU001', 0.1, 100000),
+('IID032', 'P032', 'Giay nhan', 'SU001', 0.05, 10000),
+('IID033', 'P033', 'So ghi chep', 'SU001', 0.4, 100000),
+('IID034', 'P034', 'But muc', 'SU001', 0.02, 60000),
+('IID035', 'P035', 'Giay bia', 'SU001', 0.5, 90000),
+('IID036', 'P036', 'Kep buom', 'SU001', 0.03, 50000),
+('IID037', 'P037', 'Giay decal', 'SU001', 0.2, 20000),
+('IID038', 'P038', 'But nho', 'SU001', 0.03, 5.500),
+('IID039', 'P039', 'Giay than', 'SU001', 0.2, 4.500),
+('IID040', 'P040', 'Ghim kep', 'SU001', 0.01, 200000),
+('IID041', 'P041', 'So ke hoach', 'SU001', 0.3, 50000),
+('IID042', 'P042', 'But gel', 'SU001', 0.02, 50000),
+('IID043', 'P043', 'Thit bo', 'SU006', 1.5, 90000),
+('IID044', 'P044', 'Ca hoi', 'SU006', 1.2, 70000),
+('IID045', 'P045', 'Ga nguyen con', 'SU006', 2.0, 100000),
+('IID046', 'P046', 'Tom su', 'SU006', 1.0, 0),
+('IID047', 'P047', 'Hai san dong lanh', 'SU006', 2.5, 0),
+('IID048', 'P048', 'Nuoc rua chen', 'SU005', 1.0, 0),
+('IID049', 'P049', 'Dau goi dau', 'SU005', 0.5, 0),
+('IID050', 'P050', 'Sua tam', 'SU005', 0.6, 0),
+('IID051', 'P003', 'Nuoc xa vai', 'SU005', 0.8, 0),
+('IID052', 'P002', 'Nuoc lau san', 'SU005', 1.2, 90000),
+('IID053', 'P003', 'Binh Hoa', 'SU003', 0.8, 70000),
+('IID054', 'P004', 'Chen Su', 'SU003', 0.3, 0),
+('IID055', 'P005', 'Ly Thuy Tinh', 'SU003', 0.4, 0),
+('IID056', 'P001', 'Tu Quan Ao', 'SU004', 50.0, 3000000),
+('IID057', 'P001', 'Giuong Ngu', 'SU004', 70.0, 5000000),
+('IID058', 'P001', 'Ban Lam Viec', 'SU004', 25.0, 100000),
+('IID059', 'P009', 'Dong ho Rolex', 'SU002', 0.1, 100000000),
+('IID060', 'P009', 'Lac tay bac', 'SU002', 2.5, 50000000),
+('IID061', 'P009', 'Vang nguyen khoi', 'SU002', 1.0, 70000000);
 
 
 
