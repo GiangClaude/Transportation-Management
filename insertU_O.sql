@@ -1,4 +1,5 @@
 use qlgv;
+#insert du lieu nguoi dung
 INSERT INTO AccUser (UserID, LastName, MiddleName, FirstName, Birthday, Gender, Phone, City, District, Ware, Address) VALUES
 ('U001', 'Le', 'Thi', 'Cuc', '2003-03-25', 'Nu', '0948719302', 'Hue', 'Phu Hoi', 'Phu Nhuan', 'So 6 Phu Nhuan'),
 ('U002', 'Ngo', 'Van', 'Khoa', '2003-02-04', 'Nam', '0993028471', 'Quang Tri', 'Hai Lang', 'Thi tran Lang Co', '723 Duong Truong Son'),
@@ -40,11 +41,10 @@ INSERT INTO AccUser (UserID, LastName, MiddleName, FirstName, Birthday, Gender, 
 
 select * from accuser;
 #Cái dưới này để nếu sai thì xóa nhập lại thui
-delete from accuser
-where userID like "U%";
+#delete from accuser
+#where userID like "U%";
 
-
-
+#insert du lieu phan loai hang
 insert into Surcharge (SurchargeID, SurchargeName, Price)
 values 
     ('SU001', 'Hang thong thuong', '0.00'),
@@ -58,165 +58,166 @@ select * from Surcharge;
 #Xoa du lieu neu can
 #delete from surcharge
 #where surchargeID like "SU%";
-desc Product;
+
+#insert du lieu don hang
 #tớ chưa add code total
 INSERT INTO Product (OrderID, Payer, PickupCity, PickupDistrict, PickupWard, PickupAddress, RecipientName, 
-		DeliveryCity, DeliveryDistrict, DeliveryWard, DeliveryAddress, PhoneRecipient, CurrentWarehouseID, OrderStatus, ServiceID)
+		DeliveryCity, DeliveryDistrict, DeliveryWard, DeliveryAddress, PhoneRecipient, ServiceID)
 VALUES
 ('P001', 'Nguoi nhan', 'Bac Giang', 'Yen The', 'Xa Yen The', 
 '99 Duong Dong Lac', 'Nguyen Thi Lan', 'Da Nang', 'Hai Chau', 'Thuan Phuoc',
- 'So 45 Thuan Phuoc', '0906946044',  'W001', 'Dang xu ly', 'S302'),
+ 'So 45 Thuan Phuoc', '0906946044', 'S302'),
 ('P002', 'Nguoi gui', 'Quang Binh', 'Dong Hoi', 'Hai Dinh', 
 '117 Duong Hai Dinh', 'Pham Hai Anh', 'TP. Ho Chi Minh', 'Quan 1', 'Ben Nghe',
- 'So 49 Ben Nghe',  '0987654321', 'W009', 'Dang giao hang', 'S207'),
+ 'So 49 Ben Nghe',  '0987654321', 'S207'),
 ('P003', 'Nguoi nhan', 'Can Tho', 'Ninh Kieu', 'Cai Khe',
  'So 84B Cai Khe', 'Pham Van Dung', 'TP. Ho Chi Minh', 'Binh Thanh', 'Phuong 11', 
- '123 Duong D2', '0920475186', 'W001', 'Da giao hang', 'S203'),
+ '123 Duong D2', '0920475186', 'S203'),
 ('P004', 'Nguoi gui', 'Thai Nguyen', 'Thanh pho Thai Nguyen', 'Phuong Quang Vinh', 
 '449 Duong Quang Trung', 'Le Van Hai', 'Quang Ninh', 'Ha Long', 'Bai Chay',
- 'So 1 Bai Chay', '0942326688',  'W006', 'Dang xu ly', 'S303'),
+ 'So 1 Bai Chay', '0942326688', 'S303'),
 ('P005', 'Nguoi nhan', 'Ha Noi', 'Ba Dinh', 'Ngoc Ha', 
 '035 Duong Hoang Hoa Tham', 'Tran Van Kiet', 'Ha Noi', 'Ba Dinh', 'Ngoc Ha',
- 'So 10 Ngoc Ha', '0974627239', 'W005', 'Dang giao hang', 'S101'),
+ 'So 10 Ngoc Ha', '0974627239', 'S101'),
 ('P006', 'Nguoi gui', 'Quang Tri', 'Dong Ha', 'Hai Ba Trung',
  'So 112 Hai Ba Trung',  'Bui Van Minh', 'Da Nang', 'Son Tra', 'Phuoc My',
- 'So 07A Phuoc My', '0931867249', 'W011', 'Da giao hang', 'S202'),
+ 'So 07A Phuoc My', '0931867249', 'S202'),
 ('P007', 'Nguoi gui', 'Can Tho', 'Cai Rang', 'An Khanh',
  'So 11 An Khanh',  'Vo Thi Mai', 'Thai Nguyen', 'Thanh pho Thai Nguyen', 'Phuong Quang Vinh',
- '449 Duong Quang Trung', '0986432079', 'W001', 'Dang xu ly', 'S201'),
+ '449 Duong Quang Trung', '0986432079', 'S201'),
 ('P008', 'Nguoi nhan', 'Bac Giang', 'Hiep Hoa', 'Thang', 
-'505 Duong Thang', 'Vo Thi Em', 'Can Tho', 'Cai Rang', 'An Khanh', 'So 14 An Khanh',
- '0932548791', 'W008', 'Dang giao hang', 'S102'),  
+'505 Duong Thang', 'Vo Thi Em', 'Can Tho', 'Cai Rang', 'An Khanh', 
+'So 14 An Khanh', '0932548791', 'S102'),  
 ('P009', 'Nguoi nhan', 'Quang Tri', 'Hai Lang', 'Thi tran Lang Co', 
 '723 Duong Truong Son', 'Hoang Van Phong', 'TP. Ho Chi Minh', 'Go Vap', 'Phuong Phu Nhuan', 
-'185 Hung Vuong', '0947162930', 'W006', 'Da giao hang', 'S107'),
+'185 Hung Vuong', '0947162930', 'S107'),
 ('P010', 'Nguoi gui', 'Ha Noi', 'Thanh Xuan', 'Khuong Trung',
  'So 123 Khuong Trung', 'Tran Thi Thanh Thao', 'Nghe An', 'Vinh', 'Hung Dung',
- 'So 20 Hung Dung', '0912548796', 'W002', 'Dang xu ly', 'S205'),
+ 'So 20 Hung Dung', '0912548796', 'S205'),
  #11-20
 ('P011', 'Nguoi gui', 'TP. Ho Chi Minh', 'Go Vap', 'Phuong Phu Nhuan', 
 '185 Hung Vuong', 'Bui Thi Hanh', 'Thai Binh', 'Kien Xuong', 'Minh Quang', 
-'789 Duong Minh Quang', '0901064092', 'W011', 'Dang giao hang', 'S207'),
+'789 Duong Minh Quang', '0901064092','S207'),
 ('P012', 'Nguoi nhan', 'Can Tho', 'Cai Rang', 'An Khanh', 
 'So 14 An Khanh', 'Hoang Anh Xuan', 'Da Nang', 'Ngu Hanh Son', 'My An',
- 'So 94 My An', '0953124789', 'W005', 'Da giao hang', 'S307'),
+ 'So 94 My An', '0953124789', 'S307'),
 ('P013', 'Nguoi gui', 'Bac Giang', 'Yen The', 'Xa Yen The', 
 '99 Duong Dong Lac', 'Pham Van Dung', 'Ha Noi', 'Cau Giay', 'Quan Hoa', 
- '123 Duong Quan Hoa', '0920475186', 'W009', 'Dang xu ly', 'S102'),
+ '123 Duong Quan Hoa', '0920475186', 'S102'),
 ('P014', 'Nguoi nhan', 'Thai Nguyen', 'Ninh Binh', 'Ninh Hoa', 
 '19 Duong Hoa Lu', 'Pham Thi Hue', 'Vinh Phuc', 'Phuc Yen', 'Xuan Hoa',
- 'So 122 Xuan Hoa', '0987396094', 'W006', 'Dang giao hang', 'S202'),
+ 'So 122 Xuan Hoa', '0987396094', 'S202'),
 ('P015', 'Nguoi gui', 'Ha Noi', 'Ba Dinh', 'Ngoc Ha', 
 '035 Duong Hoang Hoa Tham', 'Pham Thi Duong', 'Lang Son', 'Lang Son', 'Hoang Van Thu',
- 'So 51 Hoang Van Thu', '0924587123', 'W013', 'Da giao hang', 'S303'),
+ 'So 51 Hoang Van Thu', '0924587123','S303'),
 ('P016', 'Nguoi gui', 'Ha Noi', 'Long Bien', 'Phuong Ngoc Lam', 
 '24 Ngo Tram', 'Tran Thi Chinh', 'Da Nang', 'Hai Chau', 'Thuan Phuoc',
- 'So 011 Thuan Phuoc', '0932478591', 'W002', 'Dang xu ly', 'S106'),
+ 'So 011 Thuan Phuoc', '0932478591','S106'),
 ('P017', 'Nguoi nhan', 'Bac Giang', 'Hiep Hoa', 'Thang', 
 '505 Duong Thang', 'Vu Thi Thu', 'Quang Ninh', 'Ha Long', 'Bai Chay', 
-'313 Duong Ha Long', '0994725645', 'W011', 'Dang giao hang', 'S103'),
+'313 Duong Ha Long', '0994725645',  'S103'),
 ('P018', 'Nguoi gui', 'Thai Nguyen', 'Thanh pho Thai Nguyen', 'Phuong Quang Vinh', 
 '449 Duong Quang Trung', 'Le Thi Huyen', 'Ha Tinh', 'Hong Linh', 'Trung Luong',
- 'So 08 Trung Luong', '0915784236', 'W015', 'Da giao hang', 'S206'),
+ 'So 08 Trung Luong', '0915784236', 'S206'),
 ('P019', 'Nguoi nhan', 'Ha Noi', 'Hai Ba Trung', 'Thanh Nhan', 
 '456 Duong Le Dai Hanh', 'Le Van Hai', 'Da Nang', 'Lien Chieu', 'Hoa Khanh',
- '886 Duong Hoang Van Thai', '0942326688', 'W001', 'Dang xu ly', 'S206'),
+ '886 Duong Hoang Van Thai', '0942326688', 'S206'),
 ('P020', 'Nguoi gui', 'Ha Noi', 'Long Bien', 'Phuong Ngoc Lam', 
 '24 Ngo Tram', 'Tran Hoang Hien', 'Gia Lai', 'Pleiku', 'Chu Se',
- 'So 188 Chu Se', '0925781234', 'W012', 'Dang giao hang', 'S207'),
+ 'So 188 Chu Se', '0925781234', 'S207'),
  #21-30
 ('P021', 'Nguoi gui', 'Quang Binh', 'Dong Hoi', 'Hai Dinh', 
 '117 Duong Hai Dinh', 'Nguyen Thi Lan', 'Bac Giang', 'Hiep Hoa', 'Thang', 
-'505 Duong Thang', '0981902291', 'W001', 'Dang giao hang', 'S106'),
+'505 Duong Thang', '0981902291', 'S106'),
 ('P022', 'Nguoi nhan', 'TP. Ho Chi Minh', 'Go Vap', 'Phuong Phu Nhuan', 
 '185 Hung Vuong', 'Pham Van Dung', 'Ha Noi', 'Cau Giay', 'Quan Hoa', 
- '123 Duong Quan Hoa', '0920475186', 'W002', 'Da giao hang', 'S307'),
+ '123 Duong Quan Hoa', '0920475186', 'S307'),
 ('P023', 'Nguoi gui',  'Ha Noi', 'Hoan Kiem', 'Phuong Trang Tien', 
 '723 Pho Hue', 'Hoang Van Khanh', 'Ha Nam', 'Phu Ly', 'Trieu Duong', 
-'26 Duong Trieu Duong', '0987232244',  'W003', 'Dang giao hang', 'S102'),
+'26 Duong Trieu Duong', '0987232244',  'S102'),
 ('P024', 'Nguoi nhan', 'Ninh Binh', 'Ninh Hoa', 'Hoa Lu', 
 '19 Duong Hoa Lu', 'Pham Thi Duong', 'Da Nang', 'Son Tra', 'An Hai', 
-'456 Duong An Hai', '0945678901', 'W004', 'Dang giao hang', 'S206'),
+'456 Duong An Hai', '0945678901', 'S206'),
 ('P025', 'Nguoi gui', 'Binh Duong', 'Di An', 'Tan Dong Hiep', 
 '845 Duong Tan Dong Hiep', 'Nguyen Van Em', 'Can Tho', 'Ninh Kieu', 'An Hoa', 
-'123 Duong An Hoa', '0956789012', 'W005', 'Da giao hang', 'S204'),
+'123 Duong An Hoa', '0956789012', 'S204'),
 ('P026', 'Nguoi nhan', 'Can Tho', 'Binh Thuy', 'Long Hoa', 
 '456 Duong Long Hoa', 'Tran Thi Phuong', 'Ho Chi Minh', 'Binh Thanh', 'Phuong 26',
- '789 Duong Phuong 26', '0967890123', 'W006', 'Dang giao hang', 'S203'),
+ '789 Duong Phuong 26', '0967890123', 'S203'),
 ('P027', 'Nguoi gui', 'Thanh Hoa', 'Hoang Hoa', 'Hoang Duc', 
 '89 Duong Hoang Duc', 'Duong Thi Lan', 'Hai Phong', 'Ngo Quyen', 'Le Chan',
- 'So 23A Le Chan', '0957681029', 'W007', 'Da giao hang', 'S204'),
+ 'So 23A Le Chan', '0957681029', 'S204'),
 ('P028', 'Nguoi nhan', 'Quang Ninh', 'Cam Pha', 'Cam Trung', 
 '789 Duong Cam Trung', 'Pham Thi Huong', 'Hai Duong', 'Cam Giang', 'Cam Phuc', 
-'123 Duong Cam Phuc', '0989012345', 'W008', 'Dang giao hang', 'S202'),
+'123 Duong Cam Phuc', '0989012345', 'S202'),
 ('P029', 'Nguoi gui', 'Da Nang', 'Lien Chieu', 'Hoa Khanh', 
 '886 Duong Hoang Van Thai', 'Bui Thi Hanh', 'Thai Binh', 'Kien Xuong', 'Minh Quang', 
-'789 Duong Minh Quang', '0901064092', 'W009', 'Da giao hang', 'S306'),
+'789 Duong Minh Quang', '0901064092', 'S306'),
 ('P030', 'Nguoi nhan', 'Thai Binh', 'Dong Hung', 'Dong Kinh', 
 '123 Duong Dong Kinh', 'Vo Thi Mai', 'Thai Nguyen', 'Thanh pho Thai Nguyen', 'Phuong Quang Vinh',
- '449 Duong Quang Trung', '0986432079', 'W010', 'Dang giao hang', 'S203'),
+ '449 Duong Quang Trung', '0986432079', 'S203'),
 #31-40
 ('P031', 'Nguoi gui', 'Quang Tri', 'Hai Lang', 'Thi tran Lang Co', 
 '723 Duong Truong Son', 'Hoang Van Khanh', 'Hai Phong', 'Hong Bang', 'Thuong Ly', 
-'456 Duong Thuong Ly', '0912345679', 'W011', 'Dang giao hang', 'S206'),
+'456 Duong Thuong Ly', '0912345679', 'S206'),
 ('P032', 'Nguoi nhan', 'Hue', 'Phu Vang', 'Phu An', 
 '632 Duong Phu An', 'Bui Van Minh', 'Bac Giang', 'Yen The', 'Xa Yen The', 
-'45 Duong Dong Lac', '0931867249', 'W012', 'Da giao hang', 'S201'),
+'45 Duong Dong Lac', '0931867249', 'S201'),
 ('P033', 'Nguoi gui', 'Hai Phong', 'Le Chan', 'An Duong', 
 '108 Duong An Duong', 'Le Thi Minh', 'Hue', 'Vinh Ninh', 'Phu Hoi', 
-'789 Duong Phu Hoi', '0934567891', 'W013', 'Dang giao hang', 'S206'),
+'789 Duong Phu Hoi', '0934567891', 'S206'),
 ('P034', 'Nguoi nhan', 'Hue', 'An Cuu', 'Thuy Bieu', 
 '123 Duong Thuy Bieu', 'Le Thi Dao', 'Ninh Binh', 'Ninh Hoa', 'Hoa Lu', 
-'19 Duong Hoa Lu', '0923333218',  'W014', 'Dang giao hang', 'S106'),
+'19 Duong Hoa Lu', '0923333218', 'S106'),
 ('P035', 'Nguoi gui', 'Quang Tri', 'Dong Ha', 'Hai Ba Trung',
  'So 112 Hai Ba Trung', 'Le Thi Dao', 'Ninh Binh', 'Ninh Hoa', 'Hoa Lu', 
-'19 Duong Hoa Lu', '0923333218',  'W015', 'Da giao hang', 'S103'),
+'19 Duong Hoa Lu', '0923333218',  'S103'),
 ('P036', 'Nguoi nhan', 'Quang Binh', 'Dong Hoi', 'Hai Dinh', 
 '117 Duong Hai Dinh', 'Tran Van Phuc', 'Ho Chi Minh', 'Go Vap', 'Phuong 17', 
-'789 Duong Phuong 17', '0967890124', 'W001', 'Dang giao hang', 'S107'),
+'789 Duong Phuong 17', '0967890124', 'S107'),
 ('P037', 'Nguoi gui', 'Ha Nam', 'Phu Ly', 'Trieu Duong', 
 '26 Duong Trieu Duong', 'Le Thi Quyen', 'Quang Ninh', 'Uong Bi', 'Phuong Bac Son', 
-'456 Duong Bac Son', '0978901235', 'W017', 'Da giao hang', 'S104'),
+'456 Duong Bac Son', '0978901235', 'S104'),
 ('P038', 'Nguoi nhan', 'TP. Ho Chi Minh', 'Quan 1', 'Phuong 9', 
 '789 Duong Nguyen Van Nghi', 'Nguyen Van An', 'Ha Noi', 'Hoan Kiem', 'Phuong Trang Tien', 
-'723 Pho Hue','0952938416', 'W018', 'Dang giao hang', 'S207'),
+'723 Pho Hue','0952938416', 'S207'),
 ('P039', 'Nguoi gui', 'Ha Noi', 'Long Bien', 'Phuong Ngoc Lam', 
 '24 Ngo Tram', 'Nguyen Thi Suong', 'Thai Binh', 'Thai Thuy', 'Thuy Ha', 
-'789 Duong Thuy Ha', '0990123457', 'W019', 'Da giao hang', 'S303'),
+'789 Duong Thuy Ha', '0990123457', 'S303'),
 ('P040', 'Nguoi nhan', 'TP. Ho Chi Minh', 'Quan 1', 'Phuong 9', 
 '789 Duong Nguyen Van Nghi', 'Tran Van The', 'Nam Dinh', 'Y Yen', 'Y Hoa', 
-'456 Duong Y Hoa', '0901234568', 'W020', 'Dang giao hang', 'S207'),
+'456 Duong Y Hoa', '0901234568', 'S207'),
 #41-50
 ('P041', 'Nguoi nhan', 'Bac Giang', 'Yen The', 'Xa Yen The', 
 '99 Duong Dong Lac', 'Le Thi Hoa', 'Hai Phong', 'Ngo Quyen', 'May To', 
-'22 Hoang Van Thu', '0987654321', 'W001', 'Dang xu ly', 'S202'),
+'22 Hoang Van Thu', '0987654321', 'S202'),
 ('P042', 'Nguoi gui', 'Da Nang', 'Hai Chau', 'Thach Thang', 
 '120 Tran Phu', 'Pham Van Chinh', 'Hue', 'Phu Nhuan', 'An Cuu', 
-'18 Tran Cao Van', '0912345678', 'W002', 'Dang xu ly', 'S102'),
+'18 Tran Cao Van', '0912345678', 'S102'),
 ('P043', 'Nguoi gui', 'Can Tho', 'Ninh Kieu', 'An Hoa', 
 '45 Mau Than', 'Bui Van Hung', 'HCM', 'Quan 3', 'Phuong 7', 
-'80 Vo Thi Sau', '0917414710', 'W003', 'Dang xu ly', 'S103'),
+'80 Vo Thi Sau', '0917414710', 'S103'),
 ('P044', 'Nguoi nhan', 'Nha Trang', 'Loc Tho', 'Tan Lap', 
 '30 Le Thanh Ton', 'Hoang Van Ai', 'Quy Nhon', 'Tran Phu', 'Hai Cang', 
-'12 Nguyen Hue', '0978123456', 'W004', 'Dang xu ly','S202'),
+'12 Nguyen Hue', '0978123456', 'S202'),
 ('P045', 'Nguoi gui', 'Ha Noi', 'Hai Ba Trung', 'Thanh Nhan', 
 '456 Duong Le Dai Hanh', 'Le Van Hai', 'Da Nang', 'Lien Chieu', 'Hoa Khanh', 
-'886 Duong Hoang Van Thai', '0942326688', 'W005', 'Dang xu ly', 'S206'),
+'886 Duong Hoang Van Thai', '0942326688', 'S206'),
 ('P046', 'Nguoi gui', 'Da Nang', 'Lien Chieu', 'Hoa Khanh', 
 '886 Duong Hoang Van Thai', 'Nguyen Phuc Khang', 'Hai Phong', 'Le Chan', 'Nghia Xa', 
-'50 To Hieu', '0945678901', 'W006', 'Dang xu ly', 'S307'),
+'50 To Hieu', '0945678901', 'S307'),
 ('P047', 'Nguoi gui', 'Bac Giang', 'Yen The', 'Xa Yen The', 
 '45 Duong Dong Lac', 'Duong Thi Lan', 'Hai Phong', 'Ngo Quyen', 'Le Chan',
- 'So 23A Le Chan', '0957681029', 'W007', 'Dang xu ly', 'S203'),
+ 'So 23A Le Chan', '0957681029', 'S203'),
 ('P048', 'Nguoi gui', 'Can Tho', 'Cai Rang', 'Ba Lang', 
 '150 Cach Mang Thang Tam', 'Le Thi Cuc', 'Hue', 'Phu Hoi', 'Phu Nhuan', 
-'So 6 Phu Nhuan', '0948719302', 'W008', 'Dang xu ly', 'S107'),
+'So 6 Phu Nhuan', '0948719302', 'S107'),
 ('P049', 'Nguoi gui', 'Ha Noi', 'Long Bien', 'Phuong Ngoc Lam', 
 '24 Ngo Tram', 'Pham Thi Rong', 'Nha Trang', 'Van Ninh', 'Van Gia', 
-'25 Le Hong Phong', '0956789012', 'W009', 'Dang xu ly', 'S207'),
+'25 Le Hong Phong', '0956789012', 'S207'),
 ('P050', 'Nguoi gui', 'Hai Phong', 'Kien An', 'Bac Son',
  '10 Pham Van Dong', 'Hoang Van Khanh', 'Ha Nam', 'Phu Ly', 'Trieu Duong', 
-'26 Duong Trieu Duong', '0987232244',  'W010', 'Dang xu ly', 'S203');
+'26 Duong Trieu Duong', '0987232244', 'S203');
 
 select * from product
 order by OrderID asc;
@@ -224,7 +225,7 @@ order by OrderID asc;
 #delete from product
 #where OrderID like "P%";
 
-#MakeOrder
+#insert du lieu bang tao don hang
 insert into  OrderCreate (GiverID, OrderID, ReciverID, OrderDate)
 values 
  ('U002', 'P009', 'U010', '2024-05-27' ), ('U002', 'P031', '', '2024-05-30'),
@@ -257,6 +258,7 @@ values
 
 select * from OrderCreate;
 
+#insert du lieu chi tiet don hang
 insert into OrderDetails(ItemID, OrderID, ItemName, SurchargeID, Weight, itemprice)
 values
 ('IID001', 'P002', 'Laptop Gamming Lenovo', 'SU007', 2.5, 25000000),
@@ -321,7 +323,7 @@ values
 ('IID060', 'P009', 'Lac tay bac', 'SU002', 2.5, 50000000),
 ('IID061', 'P009', 'Vang nguyen khoi', 'SU002', 1.0, 70000000);
 
-
+select * from OrderDetails;
 
 
 
