@@ -36,8 +36,11 @@ CREATE TABLE Product (
     DeliveryDistrict VARCHAR(45),
     DeliveryWard VARCHAR(45),
     DeliveryAddress VARCHAR(45) not null,
+<<<<<<< Updated upstream
 #    CurrentWarehouseID CHAR(5) default 'K000',
 #   OrderStatus VARCHAR(20) default 'Dang xu ly',
+=======
+>>>>>>> Stashed changes
     ServiceID CHAR(5)
 );
 #them constraint cho ServiceID
@@ -79,14 +82,14 @@ CREATE TABLE AccUser (
 
 #bang tao don hang
 CREATE TABLE OrderCreate (
-    UserID CHAR(5),
-    OrderID CHAR(5),
+    OrderID CHAR(5) primary key,
+    GiverID CHAR(5),
+    ReciverID char(5),
     OrderDate DATE not null,
-    constraint Create_ID primary key (UserID, OrderID),
-    constraint User_ID foreign key (UserID) REFERENCES AccUser(UserID)
+    constraint foreign key (GiverID) REFERENCES AccUser(UserID)
     on delete cascade
 	on update cascade,
-    constraint Order_ID foreign key (OrderID) REFERENCES Product(OrderID)
+    constraint foreign key (OrderID) REFERENCES Product(OrderID)
     on delete cascade
 	on update cascade
 );
