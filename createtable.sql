@@ -82,10 +82,11 @@ CREATE TABLE AccUser (
 
 #bang tao don hang
 CREATE TABLE OrderCreate (
-    OrderID CHAR(5) primary key,
+    OrderID CHAR(5),
     GiverID CHAR(5),
     ReciverID char(5),
     OrderDate DATE not null,
+    constraint primary key (GiverID, OrderID),
     constraint foreign key (GiverID) REFERENCES AccUser(UserID)
     on delete cascade
 	on update cascade,
