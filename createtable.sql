@@ -108,6 +108,7 @@ CREATE TABLE Send (
     ReceiptDate DATE, #ngay nhan don
     EstimatedDate DATE, # ngay giao hang du kien = ngay nhan don + 4
     ActualDate DATE, # ngay giao hang thuc te - tu nhap
+    SendStatus varchar(30), #Trang thai don giao - tu nhap
     constraint SendID primary key (EmployeeID, OrderID),
     constraint Employee_ID foreign key (EmployeeID) REFERENCES Shipper(EmployeeID)
     on delete cascade
