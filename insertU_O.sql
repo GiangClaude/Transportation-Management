@@ -226,7 +226,7 @@ order by OrderID asc;
 
 insert into OrderDetails(ItemID, OrderID, ItemName, SurchargeID, Weight, itemprice)
 values
-('IID001', 'P002', 'Laptop Gamming Lenovo', 'SU007', 2.5, 25000000),
+('IID001', 'P002', 'Laptop Gamming Lenovo', 'SU007', 2.5, 3000000),
 ('IID002', 'P002', 'Mouse', 'SU007', 0.1, 100000),
 ('IID003', 'P003', 'Keyboard', 'SU007', 0.7, 1000000),
 ('IID004', 'P004', 'Monitor', 'SU007', 5.0, 4000000),
@@ -234,8 +234,8 @@ values
 ('IID006', 'P006', 'Scanner', 'SU007', 3.2, 5000000),
 ('IID007', 'P007', 'Tablet', 'SU007', 0.8, 10000000),
 ('IID008', 'P008', 'Charger', 'SU007', 0.2, 50000),
-('IID009', 'P008', 'Iphone 14 promax', 'SU007', 0.4, 25000000),
-('IID010', 'P010', 'Earphones', 'SU007', 0.05, 5000000),
+('IID009', 'P008', 'Iphone 10 promax', 'SU007', 0.4, 000000),
+('IID010', 'P010', 'Earphones', 'SU007', 0.05, 3000000),
 ('IID011', 'P011', 'But bi', 'SU001', 0.02, 10000),
 ('IID012', 'P012', 'Vo ghi chep', 'SU001', 0.5, 100000),
 ('IID013', 'P013', 'Cap sach', 'SU001', 0.7, 400000),
@@ -284,9 +284,9 @@ values
 ('IID056', 'P001', 'Tu Quan Ao', 'SU004', 50.0, 3000000),
 ('IID057', 'P001', 'Giuong Ngu', 'SU004', 70.0, 5000000),
 ('IID058', 'P001', 'Ban Lam Viec', 'SU004', 25.0, 100000),
-('IID059', 'P009', 'Dong ho Rolex', 'SU002', 0.1, 100000000),
-('IID060', 'P009', 'Lac tay bac', 'SU002', 2.5, 50000000),
-('IID061', 'P009', 'Vang nguyen khoi', 'SU002', 1.0, 70000000);
+('IID059', 'P009', 'Dong ho Rolex', 'SU002', 0.1, 2000000),
+('IID060', 'P009', 'Lac tay bac', 'SU002', 2.5, 2000000),
+('IID061', 'P009', 'Lac Vang', 'SU002', 1.0, 7000000);
 
 
 
