@@ -36,11 +36,8 @@ CREATE TABLE Product (
     DeliveryDistrict VARCHAR(45),
     DeliveryWard VARCHAR(45),
     DeliveryAddress VARCHAR(45) not null,
-<<<<<<< Updated upstream
 #    CurrentWarehouseID CHAR(5) default 'K000',
 #   OrderStatus VARCHAR(20) default 'Dang xu ly',
-=======
->>>>>>> Stashed changes
     ServiceID CHAR(5)
 );
 #them constraint cho ServiceID
@@ -95,6 +92,7 @@ CREATE TABLE OrderCreate (
 	on update cascade
 );
 
+#Tao bang shipper
 CREATE TABLE Shipper (
     EmployeeID CHAR(5) PRIMARY KEY,
     LastName VARCHAR(10),
@@ -106,6 +104,7 @@ CREATE TABLE Shipper (
     HomeTown VARCHAR(45) not null
 );
 
+#Tao bang giao hang
 CREATE TABLE Send (
     EmployeeID CHAR(5),
     OrderID CHAR(5),
@@ -122,14 +121,14 @@ CREATE TABLE Send (
 	on update cascade
 );
 
-
-
+#Tao bang dich vu
 create table Surcharge (
     SurchargeID char(5) primary key,
     SurchargeName varchar(20),
     Price decimal(5,2)
 );
 
+#Tao bang chi tiet don hang
 create table OrderDetails (
     ItemID char(10),
     OrderID char(5),
