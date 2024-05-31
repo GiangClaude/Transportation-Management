@@ -36,8 +36,8 @@ CREATE TABLE Product (
     DeliveryDistrict VARCHAR(45),
     DeliveryWard VARCHAR(45),
     DeliveryAddress VARCHAR(45) not null,
-    CurrentWarehouseID CHAR(5) default 'K000',
-    OrderStatus VARCHAR(20) default 'Dang xu ly',
+#    CurrentWarehouseID CHAR(5) default 'K000',
+#   OrderStatus VARCHAR(20) default 'Dang xu ly',
     ServiceID CHAR(5)
 );
 #them constraint cho ServiceID
@@ -121,7 +121,7 @@ CREATE TABLE Send (
 
 
 create table Surcharge (
-	SurchargeID char(5) primary key,
+    SurchargeID char(5) primary key,
     SurchargeName varchar(20),
     Price decimal(5,2)
 );
@@ -149,3 +149,111 @@ alter table orderdetails
 add primary key(ItemID); 
 
 
+# Trigger for Statusofproduct
+create table Statusofproduct(
+       OrderID CHAR(5) PRIMARY KEY,
+       CurrentWarehouseID CHAR(5),
+       OrderStatus VARCHAR(30)
+);
+
+#DROP TRIGGER after_create_product;
+# mỗi khi tạo một đơn hàng trong product sẽ thêm vao bảng Statusofproduct các thông tin dưới đây
+DELIMITER $$
+CREATE TRIGGER after_create_product
+       AFTER INSERT ON product
+       for each row
+BEGIN 
+       INSERT INTO Statusofproduct
+       SET OrderID = new.OrderID,
+           CurrentWarehouseID = '0000',
+           OrderStatus = 'Dang xu ly';
+END$$
+DELIMITER ;
+
+#drop TRIGGER after_delete_product;
+#khi don hang bi xoa di khoi bang product -> update OrderStatus = 'don hang da bi huy'
+DELIMITER $$
+CREATE TRIGGER after_delete_product
+       AFTER delete ON product
+       for each row
+BEGIN 
+         UPDATE Statusofproduct as sta
+         SET OrderStatus = 'Don hang da bi huy'
+         where OLD.OrderID = sta.OrderID and sta.CurrentWarehouseID = '0000';
+END$$
+DELIMITER ;
+
+#Drop TRIGGER after_insert_Warehouse;
+# mỗi khi thêm vào importexport thì update bảng statusofproduct
+DELIMITER $$
+CREATE TRIGGER after_insert_Warehouse
+       AFTER INSERT ON importexport
+       FOR EACH ROW
+BEGIN   
+    IF new.OutboundDate is not null
+    THEN 
+         UPDATE Statusofproduct as Sta
+         SET CurrentWarehouseID = NEW.WarehouseID,
+			 OrderStatus = 'Da roi kho'
+         WHERE NEW.OrderID = Sta.OrderID;
+	ELSE 
+         UPDATE Statusofproduct as Sta
+         SET CurrentWarehouseID = NEW.WarehouseID,
+			 OrderStatus = 'Dang trong kho'
+         WHERE NEW.OrderID = Sta.OrderID;
+    end if;
+END$$ 
+DELIMITER ;
+
+#DROP TRIGGER after_updateexportdate_Warehouse;
+#MOI KHI UPDATE VAO importexport, ExportDate != Null -> update Statusofproduct
+DELIMITER $$
+CREATE TRIGGER after_updateexportdate_Warehouse
+AFTER Update   ON importexport
+FOR EACH ROW
+BEGIN   
+    IF new.OutboundDate is not null
+    THEN 
+         UPDATE Statusofproduct as Sta
+         SET OrderStatus = 'Đa roi kho'
+         WHERE NEW.OrderID = Sta.OrderID;
+    end if;
+END$$ 
+DELIMITER ;
+
+#DROP TRIGGER after_insert_send;
+# moi khi insert vao bang send thi update bang statusofproduct
+DELIMITER $$
+CREATE TRIGGER after_insert_send
+AFTER INSERT ON send
+FOR EACH ROW
+BEGIN   
+    IF NEW.SendStatus IS NULL
+    THEN
+         UPDATE Statusofproduct as sta
+         SET CurrentWarehouseID = 'done',
+              OrderStatus = 'Đang giao hàng'
+         WHERE NEW.OrderID = sta.OrderID;
+	ELSE 
+         UPDATE Statusofproduct as sta
+         SET CurrentWarehouseID = 'done',
+              OrderStatus = NEW.SendStatus
+         WHERE NEW.OrderID = sta.OrderID;   
+	end if;
+END$$ 
+DELIMITER ;
+
+#Mỗi khi update mà actualdate != null thì hàng đã giao thành công
+DELIMITER $$
+CREATE TRIGGER after_update_send
+AFTER UPDATE ON send
+FOR EACH ROW
+BEGIN   
+   IF OLD.SendStatus <> NEW.SendStatus THEN
+         UPDATE Statusofproduct as sta
+         SET OrderStatus = NEW.SendStatus
+         where NEW.OrderID = sta.OrderID;
+    end if;
+END$$ 
+DELIMITER ;
+select * from Statusofproduct;
