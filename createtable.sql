@@ -1,5 +1,6 @@
 create database qlgv;
 use qlgv;
+#drop database qlgv;
 # tao bang kho
 CREATE TABLE Warehouse (
     WarehouseID CHAR(4) PRIMARY KEY,
@@ -29,12 +30,12 @@ CREATE TABLE Product (
     PickupDistrict VARCHAR(30),
     PickupWard VARCHAR(30),
     PickupAddress VARCHAR(45) not null,
+    RecipientName VARCHAR(30) not null,
+    PhoneRecipient VARCHAR(15) not null,
     DeliveryCity VARCHAR(50),
     DeliveryDistrict VARCHAR(45),
     DeliveryWard VARCHAR(45),
     DeliveryAddress VARCHAR(45) not null,
-    RecipientName VARCHAR(30) not null,
-    PhoneRecipient VARCHAR(15) not null,
     CurrentWarehouseID CHAR(5) default 'K000',
     OrderStatus VARCHAR(20) default 'Dang xu ly',
     ServiceID CHAR(5)
@@ -98,10 +99,7 @@ CREATE TABLE Shipper (
     Gender CHAR(6),
     Birthday DATE,
     Phone VARCHAR(10) unique not null,
-    Address VARCHAR(45) not null,
-    Ward VARCHAR(45),
-    District VARCHAR(45),
-    City VARCHAR(30)
+    HomeTown VARCHAR(45) not null
 );
 
 CREATE TABLE Send (
@@ -142,7 +140,7 @@ create table OrderDetails (
 	on update cascade
 );
 alter table OrderDetails
-modify itemprice decimal(20,3);
+add itemprice decimal(20,3);
 
 alter table orderdetails 
 drop primary key;   
