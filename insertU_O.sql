@@ -40,163 +40,8 @@ select * from accuser;
 #Cái dưới này để nếu sai thì xóa nhập lại thui
 delete from accuser
 where userID like "U%";
-INSERT INTO Product (OrderID, Total, Payer, PickupCity, PickupDistrict, PickupWard, PickupAddress, RecipientName, 
-		DeliveryCity, DeliveryDistrict, DeliveryWard, DeliveryAddress, PhoneRecipient, CurrentWarehouseID, OrderStatus
-) VALUES
-('P001', 70000.00, 'Nguoi nhan', 'Can Tho', 'Cai Rang', 'Le Binh',
- 'So 14 An Khanh', 'Duong Thi Lan', 'Hai Phong', 'Ngo Quyen', 'Le Chan',
- 'So 23A Le Chan', '0912345678', 'W001', 'Dang xu ly'),
-('P002', 23000.00, 'Nguoi gui', 'TP. Ho Chi Minh', 'Go Vap', 'Phường Phú Nhuận', 
-'185 Hùng Vương', 'Pham Hai Anh', 'TP. Ho Chi Minh', 'Quan 1', 'Ben Nghe',
- 'So 49 Ben Nghe',  '0987654321', 'W009', 'Dang giao hang'),
-('P003', 53000.00, 'Nguoi nhan', 'Can Tho', 'Ninh Kieu', 'Cai Khe',
- 'So 84B Cai Khe', 'Le Thi Cuc', 'Hue', 'Phu Hoi', 'Phu Nhuan',
- 'So 6 Phu Nhuan', '0975316428', 'W001', 'Da giao hang'),
-('P004', 170000.00, 'Nguoi gui', 'Hai Phong', 'Le Chan', 'Tran Nguyen Han',
- 'So 79A Tran Nguyen Han', 'Nguyen Phu Quynh Lam', 'Quang Ninh', 'Ha Long', 'Bai Chay',
- 'So 1 Bai Chay', '0963125478', 'W006', 'Dang xu ly'),
-('P005', 20500.00, 'Nguoi nhan', 'Ha Noi', 'Hai Ba Trung', 'Thanh Nhan',
- '456 Duong Le Dai Hanh', 'Pham Hoang Phuc Khang', 'Ha Noi', 'Ba Dinh', 'Ngoc Ha',
- 'So 10 Ngoc Ha', '0932154789', 'W005', 'Dang giao hang'),
-('P006', 45000.00, 'Nguoi gui', 'Quang Tri', 'Dong Ha', 'Hai Ba Trung',
- 'So 112 Hai Ba Trung',  'Tran Van Luong', 'Da Nang', 'Son Tra', 'Phuoc My',
- 'So 07A Phuoc My', '0912345897', 'W011', 'Da giao hang'),
-('P007', 46000.00, 'Nguoi gui', 'Can Tho', 'Cai Rang', 'An Khanh',
- 'So 11 An Khanh',  'Vo Trung Nghia', 'TP. Ho Chi Minh', 'Quan 3', 'Vo Thi Sau',
- 'So 101/6 Vo Thi Sau', '0945687123', 'W001', 'Dang xu ly'),
-('P008', 200000.00, 'Nguoi nhan', 'Hue', 'Thuan Hoa', 'Kim Long',
- 'So 60c Kim Long', 'Vo Thi Em', 'Can Tho', 'Cai Rang', 'An Khanh', 'So 14 An Khanh',
- '0932548791', 'W008', 'Dang giao hang'),  
-('P009', 40000.00, 'Nguoi nhan', 'Quang Ninh', 'Cam Pha', 'Cam Thanh',
- 'So 17 Cam Thanh', 'Ly Khac Duong', 'Hai Duong', 'Thanh Mien', 'Hop Duc',
- 'So 108 Hop Duc', '0923154789', 'W006', 'Da giao hang'),
-('P010', 78000.00, 'Nguoi gui', 'Ha Noi', 'Thanh Xuan', 'Khuong Trung',
- 'So 123 Khuong Trung', 'Tran Thi Thanh Thao', 'Nghe An', 'Vinh', 'Hung Dung',
- 'So 20 Hung Dung', '0912548796', 'W002', 'Dang xu ly'),
-('P011', 30000.00, 'Nguoi gui', 'TP. Ho Chi Minh', 'Go Vap', 'Phường Phú Nhuận', 
-'185 Hùng Vương', 'Nguyen Hoang Phuc', 'Binh Duong', 'Thu Dau Mot', 'Phu Cuong',
- 'So 48 Phu Cuong','0945781234', 'W011', 'Dang giao hang'),
-('P012', 40000.00, 'Nguoi nhan', 'Quang Binh', 'Dong Hoi', 'Hai Thanh',
- 'So 233 Hai Thanh', 'Hoang Anh Xuan', 'Da Nang', 'Ngu Hanh Son', 'My An',
- 'So 94 My An', '0953124789', 'W005', 'Da giao hang'),
-('P013', 25000.00, 'Nguoi gui', 'Hai Phong', 'Kien An', 'Ngoc Son',
- 'So 19 Ngoc Son', 'Nguyen Thi Bich', 'Bac Ninh', 'Tu Son', 'Dong Ngan',
- 'So 26 Dong Ngan', '0962145789', 'W009', 'Dang xu ly'),
-('P014', 25000.00, 'Nguoi nhan', 'Thai Nguyen', 'Thanh pho Thai Nguyen', 'Phuong Quang Vinh',
- '449 Duong Quang Trung', 'Le Van Khuong', 'Vinh Phuc', 'Phuc Yen', 'Xuan Hoa',
- 'So 122 Xuan Hoa', '0914785236', 'W006', 'Dang giao hang'),
-('P015', 289000.00, 'Nguoi gui', 'TP. Ho Chi Minh', 'Go Vap', 'Phường Phú Nhuận', 
-'185 Hùng Vương', 'Pham Thi Duong', 'Lang Son', 'Lang Son', 'Hoang Van Thu',
- 'So 51 Hoang Van Thu', '0924587123', 'W013', 'Da giao hang'),
-('P016', 44000.00, 'Nguoi gui', 'Binh Dinh', 'Quy Nhon', 'Ly Thuong Kiet',
- 'So 251 Ly Thuong Kiet', 'Tran Thi Chinh', 'Da Nang', 'Hai Chau', 'Thuan Phuoc',
- 'So 011 Thuan Phuoc', '0932478591', 'W002', 'Dang xu ly'),
-('P017', 120000.00, 'Nguoi nhan', 'Nam Dinh', 'Nam Truc', 'Truc Hung',
- 'So 154 Truc Hung', 'Vu Van Vuong', 'Hai Phong', 'Hong Bang', 'Hoang Van Thu',
- 'So 18 Hoang Van Thu', '0942154789', 'W011', 'Dang giao hang'),
-('P018', 66000.00, 'Nguoi gui', 'Ha Noi', 'Ba Dinh', 'Ngoc Ha',
- 'So 46 Ngoc Ha', 'Le Thi Huyen', 'Ha Tinh', 'Hong Linh', 'Trung Luong',
- 'So 08 Trung Luong', '0915784236', 'W015', 'Da giao hang'),
-('P019', 78000.00, 'Nguoi nhan', 'TP. Ho Chi Minh', 'Quan 4', 'Phuong 6',
- 'So 98 Phuong 6', 'Nguyen Van Duc', 'Quang Ngai', 'Son Tinh', 'Tinh Son',
- 'So 233 Tinh Son', '0954781234', 'W001', 'Dang xu ly'),
-('P020', 140000.00, 'Nguoi gui', 'Da Nang', 'Thanh Khe', 'Hoa Khanh Bac',
- 'So 41 Hoa Khanh Bac', 'Tran Hoang Hien', 'Gia Lai', 'Pleiku', 'Chu Se',
- 'So 188 Chu Se', '0925781234', 'W012', 'Dang giao hang'),
-('P021', 500000, 'Nguoi gui', 'Ha Noi', 'Dong Da', 'Cat Linh', 
-'123 Duong Cat Linh', 'Nguyen Van A', 'Hai Phong', 'Le Chan', 'Dinh Dong',
- '456 Duong Dinh Dong', '0912345678', 'W001', 'Dang giao hang'),
-('P022', 750000, 'Nguoi nhan', 'Hai Phong', 'Ngo Quyen', 'Dong Khe',
- '789 Duong Dong Khe', 'Tran Thi B', 'Ha Noi', 'Cau Giay', 'Quan Hoa', 
- '123 Duong Quan Hoa', '0923456789', 'W002', 'Da giao hang'),
-('P023', 300000, 'Nguoi gui', 'Da Nang', 'Hai Chau', 'Hoa Cuong', 
-'456 Duong Hoa Cuong', 'Le Van C', 'Hue', 'Phu Hoi', 'Phu Nhuan',
- '789 Duong Phu Nhuan', '0934567890', 'W003', 'Dang giao hang'),
-('P024', 650000, 'Nguoi nhan', 'Hue', 'Phu Nhuan', 'Phu Hoi', 
-'123 Duong Phu Hoi', 'Pham Thi D', 'Da Nang', 'Son Tra', 'An Hai', 
-'456 Duong An Hai', '0945678901', 'W004', 'Dang giao hang'),
-('P025', 850000, 'Nguoi gui', 'Ho Chi Minh', 'Quan 1', 'Ben Nghe', 
-'789 Duong Ben Nghe', 'Nguyen Van E', 'Can Tho', 'Ninh Kieu', 'An Hoa', 
-'123 Duong An Hoa', '0956789012', 'W005', 'Da giao hang'),
-('P026', 400000, 'Nguoi nhan', 'Thai Nguyen', 'Thanh pho Thai Nguyen', 'Phuong Quang Vinh', '449 Duong Quang Trung', 'Tran Thi F', 'Ho Chi Minh', 'Binh Thanh', 'Phuong 26',
- '789 Duong Phuong 26', '0967890123', 'W006', 'Dang giao hang'),
-('P027', 950000, 'Nguoi gui', 'Hai Duong', 'Hai Duong', 'Nguyen Trai', 
-'123 Duong Nguyen Trai', 'Le Van G', 'Quang Ninh', 'Ha Long', 'Bai Chay', 
-'456 Duong Bai Chay', '0978901234', 'W007', 'Da giao hang'),
-('P028', 550000, 'Nguoi nhan', 'Quang Ninh', 'Cam Pha', 'Cam Trung', 
-'789 Duong Cam Trung', 'Pham Thi H', 'Hai Duong', 'Cam Giang', 'Cam Phuc', 
-'123 Duong Cam Phuc', '0989012345', 'W008', 'Dang giao hang'),
-('P029', 600000, 'Nguoi gui', 'Nam Dinh', 'Nam Truc', 'Truc Hung', 
-'456 Duong Truc Hung', 'Nguyen Van I', 'Thai Binh', 'Kien Xuong', 'Minh Quang', 
-'789 Duong Minh Quang', '0990123456', 'W009', 'Da giao hang'),
-('P030', 700000, 'Nguoi nhan', 'Thai Binh', 'Dong Hung', 'Dong Kinh', 
-'123 Duong Dong Kinh', 'Tran Thi J', 'Nam Dinh', 'My Loc', 'My Thuan', 
-'456 Duong My Thuan', '0901234567', 'W010', 'Dang giao hang'),
-('P031', 800000, 'Nguoi gui', 'Ha Noi', 'Ba Dinh', 'Ngoc Ha', 
-'123 Duong Ngoc Ha', 'Hoang Van K', 'Hai Phong', 'Hong Bang', 'Thuong Ly', 
-'456 Duong Thuong Ly', '0912345679', 'W011', 'Dang giao hang'),
-('P032', 600000, 'Nguoi nhan', 'Hai Phong', 'Kien An', 'Nam Son', 
-'789 Duong Nam Son', 'Nguyen Thi L', 'Ha Noi', 'Dong Da', 'Van Mieu', 
-'123 Duong Van Mieu', '0923456780', 'W012', 'Da giao hang'),
-('P033', 450000, 'Nguoi gui', 'Da Nang', 'Thanh Khe', 'Chinh Gian', 
-'456 Duong Chinh Gian', 'Le Thi M', 'Hue', 'Vinh Ninh', 'Phu Hoi', 
-'789 Duong Phu Hoi', '0934567891', 'W013', 'Dang giao hang'),
-('P034', 700000, 'Nguoi nhan', 'Hue', 'An Cuu', 'Thuy Bieu', 
-'123 Duong Thuy Bieu', 'Pham Van N', 'Da Nang', 'Lien Chieu', 'Hoa Khanh', 
-'456 Duong Hoa Khanh', '0945678902', 'W014', 'Dang giao hang'),
-('P035', 850000, 'Nguoi gui', 'Ho Chi Minh', 'Tan Binh', 'Tan Son Nhat', 
-'789 Duong Tan Son Nhat', 'Nguyen Thi O', 'Can Tho', 'Cai Rang', 'Le Binh', 
-'123 Duong Le Binh', '0956789013', 'W015', 'Da giao hang'),
-('P036', 520000, 'Nguoi nhan', 'Can Tho', 'Phong Dien', 'Nhon Nghia', 
-'456 Duong Nhon Nghia', 'Tran Van P', 'Ho Chi Minh', 'Go Vap', 'Phuong 17', 
-'789 Duong Phuong 17', '0967890124', 'W001', 'Dang giao hang'),
-('P037', 930000, 'Nguoi gui', 'Ha Noi', 'Long Bien', 'Phuong Ngoc Lam', 
-'24 Ngo Tram', 'Le Thi Q', 'Quang Ninh', 'Uong Bi', 'Phuong Bac Son', 
-'456 Duong Bac Son', '0978901235', 'W017', 'Da giao hang'),
-('P038', 580000, 'Nguoi nhan', 'Quang Ninh', 'Dong Trieu', 'Xuan Son', 
-'789 Duong Xuan Son', 'Pham Van R', 'Hai Duong', 'Kim Thanh', 'Dong Cac', 
-'123 Duong Dong Cac', '0989012346', 'W018', 'Dang giao hang'),
-('P039', 620000, 'Nguoi gui', 'Nam Dinh', 'Truc Ninh', 'Nam Tien', 
-'456 Duong Nam Tien', 'Nguyen Thi S', 'Thai Binh', 'Thai Thuy', 'Thuy Ha', 
-'789 Duong Thuy Ha', '0990123457', 'W019', 'Da giao hang'),
-('P040', 710000, 'Nguoi nhan', 'Thai Binh', 'Tien Hai', 'Dong Hai', 
-'123 Duong Dong Hai', 'Tran Van T', 'Nam Dinh', 'Y Yen', 'Y Hoa', 
-'456 Duong Y Hoa', '0901234568', 'W020', 'Dang giao hang'),
-('P041', 120000.45, 'Nguoi nhan', 'Ha Noi', 'Hoan Kiem', 'Ly Thai To', 
-'15 Phan Chu Trinh', 'Hai Phong', 'Ngo Quyen', 'May To', 
-'22 Hoang Van Thu', 'Le Thi B', '0987654321', 'W001', 'Dang xu ly'),
-('P042', 150000.75, 'Nguoi gui', 'Da Nang', 'Hai Chau', 'Thach Thang', 
-'120 Tran Phu', 'Hue', 'Phu Nhuan', 'An Cuu', 
-'18 Tran Cao Van', 'Pham Van D', '0912345678', 'W002', 'Dang xu ly'),
-('P043', 200000.00, 'Nguoi gui', 'Can Tho', 'Ninh Kieu', 'An Hoa', 
-'45 Mau Than', 'HCM', 'Quan 3', 'Phuong 7', 
-'80 Vo Thi Sau', 'Do Thi F', '0934567890', 'W003', 'Dang xu ly'),
-('P044', 175000.60, 'Nguoi nhan', 'Nha Trang', 'Loc Tho', 'Tan Lap', 
-'30 Le Thanh Ton', 'Quy Nhon', 'Tran Phu', 'Hai Cang', 
-'12 Nguyen Hue', 'Hoang Van H', '0978123456', 'W004', 'Dang xu ly'),
-('P045', 220000.35, 'Nguoi gui', 'Vung Tau', 'Thang Tam', 'Nguyen An Ninh', 
-'85 Nam Ky Khoi Nghia', 'Can Tho', 'Binh Thuy', 'Long Hoa', 
-'27 Tran Hoang Na', 'Nguyen Thi J', '0901234567', 'W005', 'Dang xu ly'),
-('P046', 300000.25, 'Nguoi gui', 'Ha Noi', 'Dong Da', 'Lang Ha', 
-'65 Chua Boc', 'Hai Phong', 'Le Chan', 'Nghia Xa', 
-'50 To Hieu', 'Nguyen Van L', '0945678901', 'W006', 'Dang xu ly'),
-('P047', 180000.50, 'Nguoi gui', 'Hue', 'Vinh Ninh', 'Phuoc Vinh', 
-'100 Hung Vuong', 'Da Nang', 'Thanh Khe', 'Thanh Binh', 
-'40 Nguyen Tri Phuong', 'Tran Thi N', '0967890123', 'W007', 'Dang xu ly'),
-('P048', 250000.75, 'Nguoi gui', 'Can Tho', 'Cai Rang', 'Ba Lang', 
-'150 Cach Mang Thang Tam', 'HCM', 'Quan 1', 'Tan Dinh', 
-'70 Nguyen Thi Minh Khai', 'Nguoi nhan', '0923456789', 'W008', 'Dang xu ly'),
-('P049', 190000.90, 'Nguoi gui', 'Vung Tau', 'Thang Nhat', 'Nguyen An Ninh', 
-'35 Cach Mang Thang Tam', 'Nha Trang', 'Van Ninh', 'Van Gia', 
-'25 Le Hong Phong', 'Pham Thi R', '0956789012', 'W009', 'Dang xu ly'),
-('P050', 280000.40, 'Nguoi gui', 'Hai Phong', 'Kien An', 'Bac Son',
- '10 Pham Van Dong', 'Da Nang', 'Lien Chieu', 'Hoa Khanh Bac', 
- '55 Nguyen Luong Bang', 'Bui Van T', '0916789012', 'W010', 'Dang xu ly');
-select * from product
-order by OrderID asc;
-#Cái dưới này để nếu sai thì xóa nhập lại thui
-delete from product
-where OrderID like "P%";
+
+
 
 insert into Surcharge (SurchargeID, SurchargeName, Price)
 values 
@@ -208,10 +53,9 @@ values
     ('SU006', 'Hang dong lanh', '0.1'),
     ('SU007', 'Hang dien tu', '0.1');
 select * from Surcharge;
-delete from surcharge
-where surchargeID like "SU%";
-
-
+#Xoa du lieu neu can
+#delete from surcharge
+#where surchargeID like "SU%";
 
 
 #tớ chưa add code total
@@ -242,8 +86,8 @@ VALUES
 ('P008', 'Nguoi nhan', 'Hue', 'Thuan Hoa', 'Kim Long',
  'So 60c Kim Long', 'Vo Thi Em', 'Can Tho', 'Cai Rang', 'An Khanh', 'So 14 An Khanh',
  '0932548791', 'W008', 'Dang giao hang', 'S207'),  
-('P009', 'Nguoi nhan', 'Quang Ninh', 'Cam Pha', 'Cam Thanh',
- 'So 17 Cam Thanh', 'Ly Khac Duong', 'Hai Duong', 'Thanh Mien', 'Hop Duc',
+('P009', 'Nguoi nhan', 'Quang Tri', 'Hai Lang', 'Thi tran Lang Co', 
+'723 Duong Truong Son', 'Ly Khac Duong', 'Hai Duong', 'Thanh Mien', 'Hop Duc',
  'So 108 Hop Duc', '0923154789', 'W006', 'Da giao hang', 'S102'),
 ('P010', 'Nguoi gui', 'Ha Noi', 'Thanh Xuan', 'Khuong Trung',
  'So 123 Khuong Trung', 'Tran Thi Thanh Thao', 'Nghe An', 'Vinh', 'Hung Dung',
@@ -372,6 +216,11 @@ VALUES
  '10 Pham Van Dong', 'Da Nang', 'Lien Chieu', 'Hoa Khanh Bac', 
  '55 Nguyen Luong Bang', 'Bui Van T', '0916789012', 'W010', 'Dang xu ly', 'S204');
 
+select * from product
+order by OrderID asc;
+#Cái dưới này để nếu sai thì xóa nhập lại thui
+#delete from product
+#where OrderID like "P%";
 
 #orderdetails
 
