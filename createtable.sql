@@ -49,8 +49,8 @@ on update cascade;
 
 #bang nhap kho / xuat kho
 CREATE TABLE ImportExport (
+	OrderID CHAR(5),
     WarehouseID CHAR(5),
-    OrderID CHAR(5),
     InboundDate DATE not null,
     OutboundDate DATE default NUll,
     constraint ID primary key (WarehouseID, OrderID),
@@ -61,7 +61,6 @@ CREATE TABLE ImportExport (
     on delete cascade
 	on update cascade
 );
-
 # bang nguoi dung
 CREATE TABLE AccUser (
     UserID CHAR(5) PRIMARY KEY,
