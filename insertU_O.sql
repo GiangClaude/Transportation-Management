@@ -87,7 +87,7 @@ VALUES
  '449 Duong Quang Trung', '0986432079', 'S201'),
 ('P008', 'Nguoi nhan', 'Bac Giang', 'Hiep Hoa', 'Thang', 
 '505 Duong Thang', 'Vo Thi Em', 'Can Tho', 'Cai Rang', 'An Khanh', 
-'So 14 An Khanh', '0932548791', 'S102'),  
+'So 14 An Khanh', '0932548791', 'S107'),  
 ('P009', 'Nguoi nhan', 'Quang Tri', 'Hai Lang', 'Thi tran Lang Co', 
 '723 Duong Truong Son', 'Hoang Van Phong', 'TP. Ho Chi Minh', 'Go Vap', 'Phuong Phu Nhuan', 
 '185 Hung Vuong', '0947162930', 'S107'),
@@ -219,7 +219,12 @@ VALUES
  '10 Pham Van Dong', 'Hoang Van Khanh', 'Ha Nam', 'Phu Ly', 'Trieu Duong', 
 '26 Duong Trieu Duong', '0987232244', 'S203');
 
-select * from product
+#Tao don bi huy 7 18 25 33 42
+delete from product
+where orderid = 'P007' or orderid = 'P018' or orderid = 'P025' 
+or orderid = 'P033' or orderid = 'P042';
+
+select * from product 
 order by OrderID asc;
 #Cái dưới này để nếu sai thì xóa nhập lại thui
 #delete from product
@@ -252,11 +257,13 @@ values
  ('U029', 'P014', 'U018', '2024-05-31'), ('U029', 'P024', '', '2023-07-30'),
  ('U030', 'P037', '', '2021-12-31'), 
  ('U031', 'P003',  '', '2024-05-29'),
- ('U033', 'P007', 'U007',  '2022-03-15'), ('U033', 'P017', 'U022', '2024-05-23'), ('U033', 'P008', '', '2024-05-30'),
+ ('U033', 'P007', 'U007',  '2022-03-15'), ('U033', 'P017', 'U022', '2024-05-23'), ('U033', 'P008', '', '2024-05-25'),
  ('U034', 'P025', '', '2023-01-08');
 #orderdetails
 
 select * from OrderCreate;
+#delete from OrderCreate
+#where OrderID like 'P%';
 
 #insert du lieu chi tiet don hang
 insert into OrderDetails(ItemID, OrderID, ItemName, SurchargeID, Weight, itemprice)
