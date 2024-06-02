@@ -1,49 +1,27 @@
-CREATE DATABASE GIAOVAN;
-USE GIAOVAN;
-CREATE TABLE Shipper (
-    EmployeeID CHAR(5) PRIMARY KEY,
-    LastName VARCHAR(10),
-    MiddleName VARCHAR(10),
-    FirstName VARCHAR(10) not null,
-    Gender CHAR(6),
-    Birthday DATE,
-    Phone VARCHAR(10) unique not null,
-    Address VARCHAR(45) not null,
-    Ward VARCHAR(45),
-    District VARCHAR(45),
-    City VARCHAR(30)
-);
-INSERT INTO Shipper (EmployeeID, LastName, MiddleName, FirstName, Gender, Birthday, Phone, Address, Ward, District, City)
+INSERT INTO Shipper (EmployeeID, LastName, MiddleName, FirstName, Gender, Birthday, Phone, HomeTown)
 VALUES
-  ('SP001', 'Nguyen', 'Van', 'Anh', 'Male', '1990-07-15', '0987123456', 'So 10, Duong Tran Hung Dao', 'Dong Hoa', 'Cau Giay', 'Ha Noi'),
-  ('SP002', 'Tran', 'Thi', 'Binh', 'Female', '1995-03-02', '0912345678', 'So 25, Duong Nguyen Van Linh', 'An Phu', 'Quan 2', 'Ho Chi Minh'),
-  ('SP003', 'Le', 'Hong', 'Cuong', 'Male', '1988-11-10', '0905678901', 'So 8, duong Tran Phu', 'Nghia Chanh', 'Hai Chau', 'Da Nang'),
-  ('SP004', 'Pham', 'Thi', 'Dung', 'Female', '1992-09-25', '0978234567', 'So 35, duong Le Thanh Loi', 'Ben Thanh', 'Quan 1', 'Ho Chi Minh'),
-  ('SP005', 'Hoang', 'Minh', 'Duc', 'Male', '1993-05-08', '0943567890', 'So 12, duong Ly Thuong Kiet', 'Tran Hung Dao', 'Hoan Kiem', 'Ha Noi'),
-  ('SP006', 'Tran', 'Van', 'Hai', 'Male', '1991-12-12', '0966789012', 'So 17A, duong Tran Quang Khai', 'Tan Dinh', 'Quan 1', 'Ho Chi Minh'),
-  ('SP007', 'Hoang', 'Thu', 'Ha', 'Female', '1994-09-03', '0934012345', 'So 5, duong Nguyen Van Cu', 'An Hoa', 'Ninh Kieu', 'Can Tho'),
-  ('SP008', 'Le', 'Thi', 'Kim Anh', 'Female', '1996-06-18', '0956345678', 'So 22, duong Mai Dien Thi Luu', 'Thao Dien', 'Quan 2', 'Ho Chi Minh'),
-  ('SP009', 'Chu', 'Thi', 'Mai', 'Female', '1990-04-29', '0923678901', 'So 14, duong Le An Loi', 'Truong An', 'Ninh Kieu', 'Can Tho'),
-  ('SP010', 'Le', 'Van', 'Quang', 'Male', '1986-11-07', '0999901234', 'So 22, duong Ly Tu Trong', 'Ben Thanh', 'Quan 1', 'Ho Chi Minh'),
-  ('SP011', 'Tran', 'Quoc', 'Anh', 'Male', '1989-12-11', '0907234567', 'So 9, duong Tran Phu', 'Phan Chu Trinh', 'Hoan Kiem', 'Ha Noi'),
-  ('SP012', 'Pham', 'Minh', 'Nhat', 'Male', '1994-05-01', '0945567890', 'So 18, duong Nguyen Dinh Chieu', 'Da Kao', 'Quan 1', 'Ho Chi Minh'),
-  ('SP013', 'Lai', 'Thien', 'Loc', 'Male', '1997-09-14', '0988789012', 'So 7, duong Tran Quang Khai', 'An Hoa', 'Ninh Kieu', 'Can Tho'),
-  ('SP014', 'Nguyen', 'Trung', 'Dung', 'Male', '1998-03-05', '0919012345', 'So 11, duong Nguyen Huu Canh', 'Phuong 22', 'Binh Thanh', 'Ho Chi Minh'),
-  ('SP015', 'Dinh', 'Van', 'Hung', 'Male', '1996-11-19', '0967345678', 'So 6, duong Tran Phu', 'Cai Khe', 'Ninh Kieu', 'Can Tho'), 
-  ('SP016', 'Le', 'Quoc', 'Huy', 'Male', '1993-08-27', '0935678901', 'So 16, duong Ly Thuong Kiet', 'Ben Nghe', 'Quan 1', 'Ho Chi Minh'),
-  ('SP017', 'Tran', 'Dinh', 'Nhat Minh', 'Male', '1999-06-14', '0972901234', 'So 4, duong Nguyen Van Linh', 'Phu My Hung', 'Quan 7', 'Ho Chi Minh'),
-  ('SP018', 'Vu', 'Thi', 'Quynh', 'Female', '1987-02-03', '0909234567', 'So 13, duong Mai Dien Thi Luu', 'Thao Dien', 'Quan 2', 'Ho Chi Minh'),
-  ('SP019', 'Le', 'Minh', 'Khue', 'Female', '1984-06-06', '0946567890', 'So 20, duong Tran Quang Khai', 'An Hoa', 'Ninh Kieu', 'Can Tho'),
-  ('SP020', 'Vu', 'Manh', 'Quan', 'Male', '1992-12-17', '0969789012', 'So 10, duong Nguyen Chi Thanh','Lam Ha', 'Phu Ly', 'Ha Nam');
+  ('SP001', 'Nguyen', 'Van', 'Anh', 'Male', '1990-07-15', '0987123456', 'Ha Noi'),
+  ('SP002', 'Tran', 'Thi', 'Binh', 'Female', '1995-03-02', '0912345678', 'Ho Chi Minh'),
+  ('SP003', 'Le', 'Hong', 'Cuong', 'Male', '1988-11-10', '0905678901', 'Da Nang'),
+  ('SP004', 'Pham', 'Thi', 'Dung', 'Female', '1992-09-25', '0978234567', 'Ho Chi Minh'),
+  ('SP005', 'Hoang', 'Minh', 'Duc', 'Male', '1993-05-08', '0943567890', 'Ha Noi'),
+  ('SP006', 'Tran', 'Van', 'Hai', 'Male', '1991-12-12', '0966789012', 'Ho Chi Minh'),
+  ('SP007', 'Hoang', 'Thu', 'Ha', 'Female', '1994-09-03', '0934012345', 'Can Tho'),
+  ('SP008', 'Le', 'Thi', 'Kim Anh', 'Female', '1996-06-18', '0956345678', 'Ho Chi Minh'),
+  ('SP009', 'Chu', 'Thi', 'Mai', 'Female', '1990-04-29', '0923678901', 'Can Tho'),
+  ('SP010', 'Le', 'Van', 'Quang', 'Male', '1986-11-07', '0999901234', 'Ho Chi Minh'),
+  ('SP011', 'Tran', 'Quoc', 'Anh', 'Male', '1989-12-11', '0907234567', 'Ha Noi'),
+  ('SP012', 'Pham', 'Minh', 'Nhat', 'Male', '1994-05-01', '0945567890', 'Ho Chi Minh'),
+  ('SP013', 'Lai', 'Thien', 'Loc', 'Male', '1997-09-14', '0988789012', 'Can Tho'),
+  ('SP014', 'Nguyen', 'Trung', 'Dung', 'Male', '1998-03-05', '0919012345', 'Ho Chi Minh'),
+  ('SP015', 'Dinh', 'Van', 'Hung', 'Male', '1996-11-19', '0967345678', 'Can Tho'), 
+  ('SP016', 'Le', 'Quoc', 'Huy', 'Male', '1993-08-27', '0935678901', 'Ho Chi Minh'),
+  ('SP017', 'Tran', 'Dinh', 'Nhat Minh', 'Male', '1999-06-14', '0972901234', 'Ho Chi Minh'),
+  ('SP018', 'Vu', 'Thi', 'Quynh', 'Female', '1987-02-03', '0909234567', 'Ho Chi Minh'),
+  ('SP019', 'Le', 'Minh', 'Khue', 'Female', '1984-06-06', '0946567890', 'Can Tho'),
+  ('SP020', 'Vu', 'Manh', 'Quan', 'Male', '1992-12-17', '0969789012', 'Ha Nam');
 
-CREATE TABLE Warehouse (
-    WarehouseID CHAR(4) PRIMARY KEY,
-    WareName VARCHAR(30) NOT NULL,
-    City VARCHAR(40) NOT NULL,
-    District VARCHAR(30),
-    Ward VARCHAR(30),
-    Address VARCHAR(30)
-);
+
 INSERT INTO Warehouse (WarehouseID, WareName, Address, Ward, District, City)
 VALUES
 ('W001', 'Kho Dien Bien', '35, Duong Hoang Dieu', 'Phuong Muong Thanh', 'TP Dien Bien Phu', 'Dien Bien'),
@@ -110,13 +88,7 @@ VALUES
 ('W062', 'Kho Da Nang', '456, Duong Nguyen Van Linh', 'Phuong Hai Chau', 'Quan Hai Chau', 'Da Nang'),
 ('W063', 'Kho Quang Nam', '789, Duong Tran Hung Dao', 'Phuong An My', 'TP Tam Ky', 'Quang Nam'),
 ('W064', 'Kho Quang Ngai', '1011, Duong Ly Thuong Kiet', 'Phuong Tran Hung Dao', 'TP Quang Ngai', 'Quang Ngai');
-select * from warehouse;
-CREATE TABLE Service (
-    ServiceID CHAR(5) PRIMARY KEY,
-    ServiceName VARCHAR(20),
-    Price DECIMAL(12,3) not null,
-    MaxDistance CHAR(5)
-);
+
 INSERT INTO Service (ServiceID, ServiceName, MaxDistance, Price)
 VALUES
     ('S101', 'Economy', '50', 10000),
@@ -126,20 +98,20 @@ VALUES
     ('S105', 'Economy', '500', 34000),
     ('S106', 'Economy', '800', 40000),
     ('S107', 'Economy', '>800', 47000),
-    ('S201', 'Express', '50', 15000),
-    ('S202', 'Express', '100', 23000),
-    ('S203', 'Express', '200', 29000),
-    ('S204', 'Express', '300', 35000),
-    ('S205', 'Express', '500', 41000),
-    ('S206', 'Express', '800', 47000),
-    ('S207', 'Express', '>800', 54000),
-    ('S301', 'LargeItem', '50', 35000),
-    ('S302', 'LargeItem', '100', 49000),
-    ('S303', 'LargeItem', '200', 63000),
-    ('S304', 'LargeItem', '300', 77000),
-    ('S305', 'LargeItem', '500' , 91000),
-    ('S306', 'LargeItem', '800' , 105000),
-    ('S307', 'LargeItem', '>800' , 119000);
+    ('S201', 'Fast', '50', 15000),
+    ('S202', 'Fast', '100', 23000),
+    ('S203', 'Fast', '200', 29000),
+    ('S204', 'Fast', '300', 35000),
+    ('S205', 'Fast', '500', 41000),
+    ('S206', 'Fast', '800', 47000),
+    ('S207', 'Fast', '>800', 54000),
+    ('S301', 'Express', '50', 35000),
+    ('S302', 'Express', '100', 49000),
+    ('S303', 'Express', '200', 63000),
+    ('S304', 'Express', '300', 77000),
+    ('S305', 'Express', '500' , 91000),
+    ('S306', 'Express', '800' , 105000),
+    ('S307', 'Express', '>800' , 119000);
     
 insert into ImportExport(WarehouseID, OrderID, InboundDate, OutboundDate)
 values
@@ -180,7 +152,4 @@ values
 	('W062', 'P012', '2024-06-01', NULL),
 	('W007', 'P013', '2021-06-02', '2021-06-03'),
 	('W019', 'P013', '2021-06-03', NULL);
-select * from ImportExport;
-#delete from ImportExport
-#where OrderID like 'P%';
-select * from statusofproduct;
+
