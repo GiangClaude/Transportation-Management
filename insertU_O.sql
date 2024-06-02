@@ -43,7 +43,7 @@ select * from accuser;
 #Cái dưới này để nếu sai thì xóa nhập lại thui
 #delete from accuser
 #where userID like "U%";
-
+-----------------------------------------------------------
 #insert du lieu phan loai hang
 insert into Surcharge (SurchargeID, SurchargeName, Price)
 values 
@@ -58,7 +58,7 @@ select * from Surcharge;
 #Xoa du lieu neu can
 #delete from surcharge
 #where surchargeID like "SU%";
-
+---------------------------------------------------------------
 #insert du lieu don hang
 #tớ chưa add code total
 INSERT INTO Product (OrderID, Payer, PickupCity, PickupDistrict, PickupWard, PickupAddress, RecipientName, 
@@ -229,7 +229,7 @@ order by OrderID asc;
 #Cái dưới này để nếu sai thì xóa nhập lại thui
 #delete from product
 #where OrderID like "P%";
-
+---------------------------------------------------------------
 #insert du lieu bang tao don hang
 insert into  OrderCreate (GiverID, OrderID, ReciverID, OrderDate)
 values 
@@ -264,7 +264,7 @@ values
 select * from OrderCreate;
 #delete from OrderCreate
 #where OrderID like 'P%';
-
+---------------------------------------------------------------
 #insert du lieu chi tiet don hang
 insert into OrderDetails(ItemID, OrderID, ItemName, SurchargeID, Weight, itemprice)
 values
