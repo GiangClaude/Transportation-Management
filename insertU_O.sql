@@ -39,7 +39,7 @@ INSERT INTO AccUser (UserID, LastName, MiddleName, FirstName, Birthday, Gender, 
 ('U034', 'Tran', 'Van', 'Kiet', '1988-05-18', 'Nam', '0974627239', 'Binh Duong', 'Di An', 'Tan Dong Hiep', '845 Duong Tan Dong Hiep'), 
 ('U035', 'Pham', 'Thi', 'Hong', '1995-07-25', 'Nu', '0939109692', 'Ben Tre', 'Chau Thanh', 'Tam Phuoc', '41 Duong Tam Phuoc');
 
-select * from accuser;
+#select * from accuser;
 #Cái dưới này để nếu sai thì xóa nhập lại thui
 #delete from accuser
 #where userID like "U%";
@@ -54,7 +54,7 @@ values
     ('SU005', 'Chat long', '0.08'),
     ('SU006', 'Hang dong lanh', '0.1'),
     ('SU007', 'Hang dien tu', '0.1');
-select * from Surcharge;
+#select * from Surcharge;
 #Xoa du lieu neu can
 #delete from surcharge
 #where surchargeID like "SU%";
@@ -219,13 +219,10 @@ VALUES
  '10 Pham Van Dong', 'Hoang Van Khanh', 'Ha Nam', 'Phu Ly', 'Trieu Duong', 
 '26 Duong Trieu Duong', '0987232244', 'S203');
 
-#Tao don bi huy 7 18 25 33 42
-delete from product
-where orderid = 'P007' or orderid = 'P018' or orderid = 'P025' 
-or orderid = 'P033' or orderid = 'P042';
 
-select * from product 
-order by OrderID asc;
+
+#select * from product 
+#order by OrderID asc;
 #Cái dưới này để nếu sai thì xóa nhập lại thui
 #delete from product
 #where OrderID like "P%";
@@ -261,10 +258,11 @@ values
  ('U034', 'P025', '', '2023-01-08');
 #orderdetails
 
-select * from OrderCreate;
+#select * from OrderCreate;
 #delete from OrderCreate
 #where OrderID like 'P%';
----------------------------------------------------------------
+
+----------------------------------------
 #insert du lieu chi tiet don hang
 insert into OrderDetails(ItemID, OrderID, ItemName, SurchargeID, Weight, itemprice)
 values
@@ -330,13 +328,13 @@ values
 ('IID060', 'P009', 'Lac tay bac', 'SU002', 2.5, 50000000),
 ('IID061', 'P009', 'Vang nguyen khoi', 'SU002', 1.0, 70000000);
 
-select * from OrderDetails;
-
-
-
-
-
-
+#select * from OrderDetails;
+---------------------------------------------------------------
+#Tao don bi huy 7 18 25 33 42
+delete from product
+where orderid = 'P007' or orderid = 'P018' or orderid = 'P025' 
+or orderid = 'P033' or orderid = 'P042';
+--------------------------------------------------------------
 
 
 
