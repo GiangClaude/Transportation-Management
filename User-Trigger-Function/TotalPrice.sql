@@ -20,21 +20,17 @@ RETURNS decimal(12, 3)
 DETERMINISTIC
 BEGIN
 	declare OrderPrice decimal(12,3) default 0;
-    if Payer = 'nguoi nhan'
-    then
 	select sum(itemprice)
     into OrderPrice
     from orderdetails
     where OrderItemID = OrderID
     group by OrderID;
-    else set OrderPrice = 0.00;
-    end if;
 return (OrderPrice);
 END$$ 
 DELIMITER ;
 
 #function tinh tien pp cod, 
-#drop function OrderCod;
+#drop function OrderPrice;
 DELIMITER $$
 CREATE FUNCTION OrderCod( OrderItemID char(5), Payer varchar(15))
 RETURNS decimal(12, 3)
@@ -56,6 +52,7 @@ END$$
 DELIMITER ;
 
 #function tinh pp hang
+#drop function OrderSurcharge;
 DELIMITER $$
 CREATE FUNCTION OrderSurcharge(OrderItemID char(5))
 RETURNS decimal(12, 3)
@@ -64,6 +61,7 @@ BEGIN
 	declare OrderSurcharge decimal(12,3) default 0;
     declare ItemSurcharge decimal(12,3) default 0;
     declare ShipPrice decimal(12,3) default 0;
+    declare OrderCod decimal(12,3);
     #Xac dinh % phu phi
 	select sum(Surcharge.price)
     into ItemSurcharge
@@ -74,7 +72,11 @@ BEGIN
     into ShipPrice
     from product
     where OrderItemID = OrderID;
-    set OrderSurcharge = ShipPrice*ItemSurcharge;
+    select OrderCod(OrderID, Payer)
+    into OrderCod
+	from product
+    where OrderItemID = OrderID;
+    set OrderSurcharge = (ShipPrice+OrderCod)*ItemSurcharge;
 return (OrderSurcharge);
 END$$ 
 DELIMITER ;
@@ -134,7 +136,7 @@ END$$
 DELIMITER ;
 
 #drop function total;
-
+use qlgv;
 select OrderID, ServiceID, ShipPrice(ServiceID) as ShipPrice, OrderPrice(OrderID, Payer) as OrderPrice, 
 OrderCod(OrderID, Payer) as OrderCod, OrderSurcharge(OrderID) as ShipSurcharge, Total(OrderID) as Total,
 RecipientPay(OrderID, Payer) as RecipientPay
