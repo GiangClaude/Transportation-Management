@@ -137,6 +137,7 @@ DELIMITER ;
 
 #drop function total;
 use qlgv;
+create view PriceTotal as
 select OrderID, ServiceID, ShipPrice(ServiceID) as ShipPrice, OrderPrice(OrderID, Payer) as OrderPrice, 
 OrderCod(OrderID, Payer) as OrderCod, OrderSurcharge(OrderID) as ShipSurcharge, Total(OrderID) as Total,
 RecipientPay(OrderID, Payer) as RecipientPay
