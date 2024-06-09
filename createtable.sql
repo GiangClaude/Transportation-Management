@@ -91,6 +91,35 @@ CREATE TABLE OrderCreate (
 	on update cascade
 );
 
+# Tao trigger de ngan khi add du lieu vao 2 cot reciverID = OrderID
+#DROP TRIGGER before_insert_OrderCreate;
+DELIMITER $$
+CREATE TRIGGER before_insert_OrderCreate
+     BEFORE insert ON OrderCreate
+     for each row
+BEGIN
+     IF new.GiverID = new.ReciverID
+     then 
+		  signal SQLSTATE '45000'
+          SET MESSAGE_TEXT = 'Nguoi gui khong the tu dat don hang cua minh!';
+	 end if;
+END $$
+DELIMITER ;
+
+#DROP TRIGGER before_update_OrderCreate
+DELIMITER $$
+CREATE TRIGGER before_update_OrderCreate
+     BEFORE update ON OrderCreate
+     for each row
+BEGIN
+     IF new.GiverID = old.ReciverID or old.GiverID = new.ReciverID or new.GiverID = new.ReciverID
+     then 
+		  signal SQLSTATE '45000'
+          SET MESSAGE_TEXT = 'Nguoi gui khong the tu dat don hang cua minh!';
+	 end if;
+END $$
+DELIMITER ;
+
 #Tao bang shipper
 CREATE TABLE Shipper (
     EmployeeID CHAR(5) PRIMARY KEY,
