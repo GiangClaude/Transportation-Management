@@ -109,7 +109,7 @@ CREATE TABLE Send (
     OrderID CHAR(5),
     ReceiptDate DATE, #ngay nhan don
     EstimatedDate DATE, # ngay giao hang du kien = ngay nhan don + 4
-    ActualDate DATE, # ngay giao hang thuc te - tu nhap
+    ActualDate DATE, # ngay giao hang thuc te - tu nhap 
     SendStatus varchar(30), #Trang thai don giao - tu nhap
     constraint SendID primary key (EmployeeID, OrderID),
     constraint Employee_ID foreign key (EmployeeID) REFERENCES Shipper(EmployeeID)
@@ -157,6 +157,7 @@ create table Statusofproduct(
        CurrentWarehouseID CHAR(5),
        OrderStatus VARCHAR(30)
 );
+select * from Statusofproduct;
 
 #DROP TRIGGER after_create_product;
 # mỗi khi tạo một đơn hàng trong product sẽ thêm vao bảng Statusofproduct các thông tin dưới đây
@@ -233,12 +234,12 @@ BEGIN
     IF NEW.SendStatus IS NULL
     THEN
          UPDATE Statusofproduct as sta
-         SET CurrentWarehouseID = 'done',
+         SET CurrentWarehouseID = 'Done',
               OrderStatus = 'Đang giao hàng'
          WHERE NEW.OrderID = sta.OrderID;
 	ELSE 
          UPDATE Statusofproduct as sta
-         SET CurrentWarehouseID = 'done',
+         SET CurrentWarehouseID = 'Done',
               OrderStatus = NEW.SendStatus
          WHERE NEW.OrderID = sta.OrderID;   
 	end if;
@@ -258,7 +259,7 @@ BEGIN
     end if;
 END$$ 
 DELIMITER ;
-select * from Statusofproduct;
+#select * from Statusofproduct;
 
 
 # trigger do chan tao
