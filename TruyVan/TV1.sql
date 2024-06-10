@@ -32,3 +32,68 @@ create index PickupAddress on product(PickupCity, PickupDistrict, PickupWard, Pi
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# ty le don hang giao thanh cong, bi huy, bi hoan cua tung account
+# drop function  Successpercent;
+DELIMITER $$
+CREATE FUNCTION Successpercent(UserID CHAR(5))
+RETURNS DECIMAL(5,2)
+DETERMINISTIC 
+BEGIN
+    DECLARE success_rate DECIMAL(5,2) DEFAULT 0.00;
+    -- Tạo bảng tạm thời chứa các đơn hàng và trạng thái đơn mà UserID đã đặt
+    WITH CTEtable AS (
+        SELECT POG.OrderID AS Orde, S.OrderStatus AS Sttus
+        FROM Statusofproduct AS S
+        INNER JOIN (
+            SELECT OrderID
+            FROM OrderCreate
+            WHERE GiverID = UserID
+        ) AS POG ON S.OrderID = POG.OrderID
+    )
+    SELECT ROUND((CAST((SELECT COUNT(Orde) FROM CTEtable WHERE Sttus = 'Thanh cong') AS DECIMAL) 
+                  / COUNT(Orde)) * 100, 2)
+    INTO success_rate
+    FROM CTEtable;
+    RETURN success_rate;
+END$$
+DELIMITER ;
+
+SELECT distinct UserID, 
+CASE 
+    When userid in (select distinct giverid from ordercreate) then Successpercent(UserID) 
+    else 0.00
+    end AS `Tỷ lệ đơn hàng được giao thành công`
+FROM accuser
+Order by UserID;
+
+#trong tat ca cac don hang da gui thi so don hang thanh cong, hoan, huy lan luot la
+select * from Statusofproduct;
+select Round(((select count(orderID) from Statusofproduct
+		 where OrderStatus = 'Thanh cong'
+		 group by OrderStatus) / count(OrderID)) * 100, 2)
+	   as `Tỷ lệ đơn hàng được giao thành công`,
+       Round(((select count(orderID) from Statusofproduct
+		 where OrderStatus = 'Hoan'
+		 group by OrderStatus) / count(OrderID)) * 100, 2)
+	   as `Tỷ lệ đơn hàng bị hoàn lại`,
+       Round(((select count(orderID) from Statusofproduct
+		 where OrderStatus = 'Don hang da bi huy'
+		 group by OrderStatus) / count(OrderID)) * 100, 2)
+	   as `Tỷ lệ đơn hàng đã bị hủy`
+from Statusofproduct;
