@@ -46,8 +46,9 @@ create index PickupAddress on product(PickupCity, PickupDistrict, PickupWard, Pi
 
 
 
-
-
+#index
+create index give_id on OrderCreate(GiverID);
+create index order_status on Statusofproduct(OrderStatus);
 # ty le don hang giao thanh cong, bi huy, bi hoan cua tung account
 # drop function  Successpercent;
 DELIMITER $$
