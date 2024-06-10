@@ -238,7 +238,7 @@ END$$
 DELIMITER ;
 
 #DROP TRIGGER after_updateexportdate_Warehouse;
-#MOI KHI UPDATE VAO importexport, ExportDate != Null -> update Statusofproduct
+#MOI KHI UPDATE VAO importexport, ExportDate != NULL -> update Statusofproduct
 DELIMITER $$
 CREATE TRIGGER after_updateexportdate_Warehouse
 AFTER Update   ON importexport
@@ -247,7 +247,7 @@ BEGIN
     IF new.OutboundDate is not null
     THEN 
          UPDATE Statusofproduct as Sta
-         SET OrderStatus = 'Đa roi kho'
+         SET OrderStatus = 'Da roi kho'
          WHERE NEW.OrderID = Sta.OrderID;
     end if;
 END$$ 
