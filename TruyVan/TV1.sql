@@ -98,3 +98,17 @@ select Round(((select count(orderID) from Statusofproduct
 		 group by OrderStatus) / count(OrderID)) * 100, 2)
 	   as `Tỷ lệ đơn hàng đã bị hủy`
 from Statusofproduct;
+
+#Dich vu nao duoc dung nhieu nhat?
+select p.ServiceID ,count(OrderID) as c, servicename
+from product as p
+     inner join Service as S
+     on S.ServiceID = p.ServiceID
+group by S.ServiceID
+order by c desc
+limit 1;
+
+#cac don hang van dang trong qua trinh van chuyen giua cac kho?
+explain select OrderID
+from Statusofproduct 
+where OrderStatus = 'Dang trong kho' or OrderStatus = 'Da roi kho';
