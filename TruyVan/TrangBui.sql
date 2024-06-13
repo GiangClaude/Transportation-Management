@@ -1,7 +1,7 @@
 #index
 create index give_id on OrderCreate(GiverID);
 create index order_status on Statusofproduct(OrderStatus);
-# ty le don hang giao thanh cong, bi huy, bi hoan cua tung account
+# ty le don hang giao thanh cong cua tung account
 # drop function  Successpercent;
 DELIMITER $$
 CREATE FUNCTION Successpercent(UserID CHAR(5))
