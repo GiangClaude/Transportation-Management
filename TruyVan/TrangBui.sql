@@ -60,11 +60,6 @@ group by S.ServiceID
 order by c desc
 limit 1;
 
-#cac don hang van dang trong qua trinh van chuyen giua cac kho?
-explain select OrderID
-from Statusofproduct 
-where OrderStatus = 'Dang trong kho' or OrderStatus = 'Da roi kho';
-
 #Nhung Shipper nao giao nhieu don hang nhat
 create view temtable as 
 select sh.EmployeeID, sh.Lastname, sh.MiddleName, sh.FirstName, count(OrderID) as `Số lượng đơn`
