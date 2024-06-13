@@ -122,10 +122,10 @@ BEGIN
     DECLARE Trung_binh INT;
     select AVG(SUM_OF_DAY(P.OrderID))
     into Trung_binh
-    from ((Product as P inner join service as s on P.ServiceID = s.ServiceID)
+    from (Product as P 
           inner join statusofproduct as status on P.OrderID = status.OrderID)
     where OrderStatus = 'Thanh cong' and 
-          s.ServiceID = Ma_dich_vu;
+          ServiceID = Ma_dich_vu;
 	#select * from ordercreate order by OrderID;
     #select * from send order by OrderID;
     #select * from product where ServiceID = 'S303';
