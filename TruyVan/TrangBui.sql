@@ -9,7 +9,7 @@ RETURNS DECIMAL(5,2)
 DETERMINISTIC 
 BEGIN
     DECLARE success_rate DECIMAL(5,2) DEFAULT 0.00;
-    -- Tạo bảng tạm thời chứa các đơn hàng và trạng thái đơn mà UserID đã đặt
+    # tao CTEtable de luu OrderID cua don hang va trang thai cua no.
     WITH CTEtable AS (
         SELECT POG.OrderID AS Orde, S.OrderStatus AS Sttus
         FROM Statusofproduct AS S
