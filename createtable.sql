@@ -61,6 +61,7 @@ CREATE TABLE ImportExport (
     on delete cascade
 	on update cascade
 );
+
 # bang nguoi dung
 CREATE TABLE AccUser (
     UserID CHAR(5) PRIMARY KEY,
@@ -90,6 +91,7 @@ CREATE TABLE OrderCreate (
     on delete cascade
 	on update cascade
 );
+
 
 # Tao trigger de ngan khi add du lieu vao 2 cot reciverID = OrderID
 #DROP TRIGGER before_insert_OrderCreate;
@@ -131,7 +133,7 @@ CREATE TABLE Shipper (
     Phone VARCHAR(10) unique not null,
     HomeTown VARCHAR(45) not null
 );
-
+desc Shipper;
 #Tao bang giao hang
 CREATE TABLE Send (
     EmployeeID CHAR(5),
@@ -148,13 +150,14 @@ CREATE TABLE Send (
     on delete cascade
 	on update cascade
 );
-
+#desc Send;
 #Tao bang dich vu
 create table Surcharge (
     SurchargeID char(5) primary key,
     SurchargeName varchar(20),
     Price decimal(5,2)
 );
+#desc Surcharge;
 
 #Tao bang chi tiet don hang
 create table OrderDetails (
@@ -178,7 +181,7 @@ alter table orderdetails
 drop primary key;   
 alter table orderdetails
 add primary key(ItemID); 
-
+#desc orderdetails;
 
 # Trigger for Statusofproduct
 create table Statusofproduct(
@@ -264,7 +267,7 @@ BEGIN
     THEN
          UPDATE Statusofproduct as sta
          SET CurrentWarehouseID = 'Done',
-              OrderStatus = 'Đang giao hàng'
+              OrderStatus = 'Dang giao hang'
          WHERE NEW.OrderID = sta.OrderID;
 	ELSE 
          UPDATE Statusofproduct as sta
