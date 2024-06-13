@@ -1,20 +1,26 @@
+use qlgv;
 #Chon so nguoi tao don trong nam 2024, sap xep theo thu tu so don 
-select GiverID, count(orderID)
+create index Order_Date on OrderCreate(OrderDate);
+#drop index Order_Date on OrderCreate;
+#explain 
+select GiverID, count(orderID) as So_Don
 from OrderCreate
 where orderDate >= '2024-01-01'
 group by GiverID
 order by count(orderID) desc;
 
 
-#Biet nguoi dung co so tien ship tren 1.000.000 hoac co so don > 3 la khach hang tiem nang. Hay liet ke thong tin cua nhung user la kh tiem nang
+#Biet nguoi dung co so tien ship(Khong tinh gia tri don) tren 100.000 hoac co so don > 3 la khach hang tiem nang. Hay liet ke thong tin cua nhung user la kh tiem nang
 select * from accuser
 where userid in (
 	select giverid
-	from ordercreate,PriceTotal
+	from ordercreate, PriceTotal
 	where ordercreate.OrderID = PriceTotal.OrderID
 	group by GiverID
-	having sum(total) >1000000 or count(ordercreate.orderid) >3
+	having (sum(ShipPrice) + sum(OrderCod) + sum(ShipSurcharge)) > 150000
 );
+
+select * from PriceTotal;
 
 #Chon ra nhung nguoi dung tao tai khoan nhung chua gui don nao
 select * from accuser
@@ -27,16 +33,12 @@ where userid not in (
 
 use qlgv;
 #Chọn ra những tk đã từng gửi đơn hàng có địa chỉ lấy hàng khác địa chỉ user
-create index UserAddress on accuser(city,  District, ware, Address);
-create index PickupAddress on product(PickupCity, PickupDistrict, PickupWard, PickupAddress);
 
 
-
-
-
-
-
-
+#Chon ra ten, tuoi, gioi tinh user co dc o Ha Noi
+#Revenue Manager, Customer Manager, 
+select lastname, middlename,firstname, gender,phone from accuser
+where city = 'Ha Noi';
 
 
 
@@ -49,66 +51,72 @@ create index PickupAddress on product(PickupCity, PickupDistrict, PickupWard, Pi
 #index
 create index give_id on OrderCreate(GiverID);
 create index order_status on Statusofproduct(OrderStatus);
-# ty le don hang giao thanh cong, bi huy, bi hoan cua tung account
-# drop function  Successpercent;
+
+
+#Loc ra top 10 kho hang co nhieu don hang di qua nhat
+#Revenue Manager
+select warehouse.WarehouseID, Warename, count(orderid) as SoDon
+from Warehouse, importexport
+where warehouse.warehouseid = importexport.warehouseid
+group by warehouseid
+order by SoDon desc
+limit 10;
+
+#Neu shipper giao đúng hạn trên 50% số đơn thì là shipper đạt tiêu chuẩn. Hãy lọc ra những shipper đạt tiêu chuẩn
+#Revenue Manager và Shipper có thể dùng truy vấn này
 DELIMITER $$
-CREATE FUNCTION Successpercent(UserID CHAR(5))
-RETURNS DECIMAL(5,2)
-DETERMINISTIC 
+CREATE FUNCTION EnableOrderPercent( PEmployeeID char(6) )
+RETURNS decimal(5,2)
+DETERMINISTIC
 BEGIN
-    DECLARE success_rate DECIMAL(5,2) DEFAULT 0.00;
-    -- Tạo bảng tạm thời chứa các đơn hàng và trạng thái đơn mà UserID đã đặt
-    WITH CTEtable AS (
-        SELECT POG.OrderID AS Orde, S.OrderStatus AS Sttus
-        FROM Statusofproduct AS S
-        INNER JOIN (
-            SELECT OrderID
-            FROM OrderCreate
-            WHERE GiverID = UserID
-        ) AS POG ON S.OrderID = POG.OrderID
-    )
-    SELECT ROUND((CAST((SELECT COUNT(Orde) FROM CTEtable WHERE Sttus = 'Thanh cong') AS DECIMAL) 
-                  / COUNT(Orde)) * 100, 2)
-    INTO success_rate
-    FROM CTEtable;
-    RETURN success_rate;
+	declare OK int default 0;
+    declare total int default 0;
+    declare percent decimal(5,2) default 0;
+    select count(orderid)
+    into total
+    from send
+    where PEmployeeID = EmployeeID
+    group by EmployeeID;
+	select count(orderid)
+    into ok
+    from send
+    where PEmployeeID = EmployeeID and EstimatedDate <= ActualDate
+    group by EmployeeID;
+    if (total = 0) then set percent = 0;
+    else set percent = ok/total*100;
+    end if;
+return (percent);
+END$$ 
+DELIMITER ;
+#drop function Percent;
+select distinct shipper.*, count(orderid) as SoDon, EnableOrderPercent(shipper.EmployeeID) as SuccessPercent
+from shipper, send
+where shipper.employeeid = send.employeeid
+group by shipper.employeeid
+having SuccessPercent >= 50.00;
+
+select distinct shipper.*, Percent(shipper.EmployeeID) as SuccessPercent
+from shipper;
+#having SuccessPercent >= 50.00;
+
+#Ty le phan phoi don hang nhan trong o cac tinh
+DELIMITER $$
+Create function PercentCity( Cityname varchar(20))
+returns decimal(5,3)
+DETERMINISTIC
+BEGIN
+	declare NumberofOrder smallint;
+    declare NumberOrderCity smallint;
+    declare PercentCity decimal(5,3);
+    select count(*) into NumberofOrder from Product;
+    select count(OrderID) into NumberOrderCity from Product
+    where Cityname = DeliveryCity
+    group by Cityname;
+    set PercentCity = NumberOrderCity/NumberofOrder*100;
+return (PercentCity);
 END$$
 DELIMITER ;
+select distinct DeliveryCity as City, count(OrderID) as TongSoDon, PercentCity(DeliveryCity) as Ty_le_phan_phoi from Product
+group by DeliveryCity;
 
-SELECT distinct UserID, 
-CASE 
-    When userid in (select distinct giverid from ordercreate) then Successpercent(UserID) 
-    else 0.00
-    end AS `Tỷ lệ đơn hàng được giao thành công`
-FROM accuser
-Order by UserID;
-
-#trong tat ca cac don hang da gui thi so don hang thanh cong, hoan, huy lan luot la
-select * from Statusofproduct;
-select Round(((select count(orderID) from Statusofproduct
-		 where OrderStatus = 'Thanh cong'
-		 group by OrderStatus) / count(OrderID)) * 100, 2)
-	   as `Tỷ lệ đơn hàng được giao thành công`,
-       Round(((select count(orderID) from Statusofproduct
-		 where OrderStatus = 'Hoan'
-		 group by OrderStatus) / count(OrderID)) * 100, 2)
-	   as `Tỷ lệ đơn hàng bị hoàn lại`,
-       Round(((select count(orderID) from Statusofproduct
-		 where OrderStatus = 'Don hang da bi huy'
-		 group by OrderStatus) / count(OrderID)) * 100, 2)
-	   as `Tỷ lệ đơn hàng đã bị hủy`
-from Statusofproduct;
-
-#Dich vu nao duoc dung nhieu nhat?
-select p.ServiceID ,count(OrderID) as c, servicename
-from product as p
-     inner join Service as S
-     on S.ServiceID = p.ServiceID
-group by S.ServiceID
-order by c desc
-limit 1;
-
-#cac don hang van dang trong qua trinh van chuyen giua cac kho?
-explain select OrderID
-from Statusofproduct 
-where OrderStatus = 'Dang trong kho' or OrderStatus = 'Da roi kho';
+#
