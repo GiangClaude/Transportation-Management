@@ -193,7 +193,7 @@ VALUES
 '845 Duong Tan Dong Hiep', 'Nguyen Van Em', 'Can Tho', 'Ninh Kieu', 'An Hoa', 
 '123 Duong An Hoa', '0956789012', 'S204'),
 ('P026', 'Nguoi nhan', 'Can Tho', 'Binh Thuy', 'Long Hoa', 
-'456 Duong Long Hoa', 'Tran Thi Phuong', 'Ho Chi Minh', 'Binh Thanh', 'Phuong 26',
+'456 Duong Long Hoa', 'Tran Thi Phuong', 'TP. Ho Chi Minh', 'Binh Thanh', 'Phuong 26',
  '789 Duong Phuong 26', '0967890123', 'S203'),
 ('P027', 'Nguoi gui', 'Thanh Hoa', 'Hoang Hoa', 'Hoang Duc', 
 '89 Duong Hoang Duc', 'Duong Thi Lan', 'Hai Phong', 'Ngo Quyen', 'Le Chan',
@@ -224,7 +224,7 @@ VALUES
  'So 112 Hai Ba Trung', 'Le Thi Dao', 'Ninh Binh', 'Ninh Hoa', 'Hoa Lu', 
 '19 Duong Hoa Lu', '0923333218',  'S103'),
 ('P036', 'Nguoi nhan', 'Quang Binh', 'Dong Hoi', 'Hai Dinh', 
-'117 Duong Hai Dinh', 'Tran Van Phuc', 'Ho Chi Minh', 'Go Vap', 'Phuong 17', 
+'117 Duong Hai Dinh', 'Tran Van Phuc', 'TP. Ho Chi Minh', 'Go Vap', 'Phuong 17', 
 '789 Duong Phuong 17', '0967890124', 'S107'),
 ('P037', 'Nguoi gui', 'Ha Nam', 'Phu Ly', 'Trieu Duong', 
 '26 Duong Trieu Duong', 'Le Thi Quyen', 'Quang Ninh', 'Uong Bi', 'Phuong Bac Son', 
@@ -246,7 +246,7 @@ VALUES
 '120 Tran Phu', 'Pham Van Chinh', 'Hue', 'Phu Nhuan', 'An Cuu', 
 '18 Tran Cao Van', '0912345678', 'S102'),
 ('P043', 'Nguoi gui', 'Can Tho', 'Ninh Kieu', 'An Hoa', 
-'45 Mau Than', 'Bui Van Hung', 'HCM', 'Quan 3', 'Phuong 7', 
+'45 Mau Than', 'Bui Van Hung', 'TP. Ho Chi Minh', 'Quan 3', 'Phuong 7', 
 '80 Vo Thi Sau', '0917414710', 'S103'),
 ('P044', 'Nguoi nhan', 'Nha Trang', 'Loc Tho', 'Tan Lap', 
 '30 Le Thanh Ton', 'Hoang Van Ai', 'Quy Nhon', 'Tran Phu', 'Hai Cang', 
@@ -272,7 +272,7 @@ VALUES
 
 
 
-#select * from product 
+select * from product;
 #order by OrderID asc;
 #Cái dưới này để nếu sai thì xóa nhập lại thui
 #delete from product
@@ -285,14 +285,14 @@ values
  ('U003', 'P019', 'U019',  '2024-05-28'), ('U003', 'P045',  'U019', '2024-05-28'),
  ('U005', 'P047', 'U013', '2024-05-31'),
  ('U006', 'P023', 'U030', '2024-05-31'),	
- ('U007', 'P044', '', '2024-01-13'), ('U007', 'P018', '', '2024-03-25' ), ('U007', 'P004', 'U019', '2024-02-14'),
+ ('U007', 'P044', '', '2024-05-28'), ('U007', 'P018', '', '2024-03-25' ), ('U007', 'P004', 'U019', '2024-02-14'),
  ('U008', 'P048', 'U001', '2023-04-06'),
  ('U009', 'P038', '', '2024-05-27'), ('U009', 'P050', 'U030', '2024-05-29'), ('U009', 'P040', '', '2022-06-01' ),
  ('U010', 'P011', 'U027', '2024-05-09'), ('U010', 'P022', 'U004', '2024-06-01'),
  ('U011', 'P010', '', '2021-09-18'),
  ('U012', 'P012', '', '2024-06-01'),
  ('U014', 'P042', '', '2021-09-30'),
- ('U015', 'P016', '', '2024-06-01'), ('U015', 'P039', '', '2024-05-31'), ('U015', 'P020', '', '2024-05-29'), ('U015', 'P049', '', '2024-02-14' ),
+ ('U015', 'P016', '', '2023-02-14'), ('U015', 'P039', '', '2024-05-31'), ('U015', 'P020', '', '2024-05-29'), ('U015', 'P049', '', '2024-02-14' ),
  ('U017', 'P033', '' , '2023-11-13'),
  ('U019', 'P035', 'U029', '2024-05-29'), ('U019', 'P006', 'U005', '2023-11-05' ), ('U019', 'P029', 'U027', '2024-06-01'), ('U019', 'P046', '', '2024-06-01'),
  ('U020', 'P005', 'U034', '2024-05-30'), ('U020', 'P015', '', '2024-06-01' ),
@@ -649,6 +649,7 @@ values
 ('W020','P050', '2024-05-30', '2024-05-31');
 
 #Insert bang giao hang
+
 insert into send(EmployeeID, OrderID, ReceiptDate, EstimatedDate, ActualDate, SendStatus)
 values
 ('SP001', 'P001', '2021-03-19',	'2021-03-19', '2021-03-19',	'Thanh cong'), #Dang Nang
@@ -679,3 +680,4 @@ values
 ('SP019', 'P045', '2024-06-01',	'2024-06-03', NULL,     	NULL), # Da Nang
 ('SP016', 'P048', '2023-04-11',	'2023-04-12', '2023-04-13',	'Thanh cong'), #Hue
 ('SP020', 'P049', '2024-02-20',	'2024-02-22', '2024-02-23',	'Thanh cong'); #Nha Trang
+
