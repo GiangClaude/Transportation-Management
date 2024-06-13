@@ -100,15 +100,15 @@ CALL Show_don_hang('Kho Bac Giang', '2016-05-26', '2024-06-03');
   # tinh so ngay ke tu khi tao dich vu cho den khi dc giao cua 1 don hang 
    # drop FUNCTION SUM_OF_DAY;
    DELIMITER $$
-    CREATE FUNCTION SUM_OF_DAY(Ma_dich_vu CHAR(5))
+    CREATE FUNCTION SUM_OF_DAY(Ma_van_don CHAR(5))
     RETURNS INT 
     DETERMINISTIC
     BEGIN
         DECLARE Sumofday INT;
-        SELECT DATEDIFF((SELECT ActualDate from send where OrderID = Ma_dich_vu), OrderDate)
+        SELECT DATEDIFF((SELECT ActualDate from send where OrderID = Ma_van_don), OrderDate)
         INTO Sumofday 
         FROM ordercreate
-        WHERE OrderID = Ma_dich_vu;
+        WHERE OrderID = Ma_van_don;
         return Sumofday;
     END $$
     DELIMITER ;
