@@ -1,12 +1,12 @@
 use qlgv; 
 -- 1. Liệt kê số lượng đơn hàng đã giao thành công theo từng nhân viên giao hàng trong tháng 6/2024
-SELECT s.EmployeeID, e.FirstName, e.LastName, COUNT(*) AS SoLuongDonHang
+SELECT s.EmployeeID, e.FirstName, e. MiddleName, e.LastName, COUNT(*) AS SoLuongDonHang
 FROM Send s
 JOIN Shipper e ON s.EmployeeID = e.EmployeeID
 WHERE s.SendStatus = 'Thanh cong' 
 AND YEAR(s.ReceiptDate) = 2024 
 AND MONTH(s.ReceiptDate) = 5
-GROUP BY s.EmployeeID, e.FirstName, e.LastName;
+GROUP BY s.EmployeeID, e.FirstName, e. MiddleName, e.LastName;
 -- 2. Lấy thông tin về các đơn hàng đã qua kho có tên 'Kho Ninh Binh’ vào ngày 29/5/2024
 SELECT *
 FROM ImportExport ie
