@@ -7,19 +7,19 @@ WHERE s.SendStatus = 'Thanh cong'
 AND YEAR(s.ActualDate) = 2024 
 AND MONTH(s.ActualDate) = 5
 GROUP BY s.EmployeeID, ShipperName;
+
 -- 2. Lấy thông tin về các đơn hàng đã qua kho có tên 'Kho Ninh Binh’ vào ngày 29/5/2024
 SELECT ie.OrderID, ie.WarehouseID, ie.InboundDate, ie.OutboundDate
 FROM ImportExport ie
 JOIN Warehouse w ON ie.WarehouseID = w.WarehouseID
 WHERE w.WareName = 'Kho Ninh Binh' AND DATE(ie.InboundDate) = '2024-05-29';
+
 -- 3. Shipper giao nhiều đơn hàng nhất vào năm 2023 sẽ được trao danh hiệu “Shipper Star 2023”
 ALTER TABLE Shipper
 ADD Status VARCHAR(30);
 
 WITH ShipperDeliveries AS (
-    SELECT 
-        s.EmployeeID,
-        CONCAT(s.FirstName, ' ', s.MiddleName, ' ', s.LastName) AS ShipperName,
+    SELECT s.EmployeeID, CONCAT(s.FirstName, ' ', s.MiddleName, ' ', s.LastName) AS ShipperName,
         COUNT(sd.OrderID) AS NumberOfDeliveries
     FROM Shipper s
     JOIN Send sd ON s.EmployeeID = sd.EmployeeID
@@ -39,6 +39,7 @@ FROM Shipper;
 
 ALTER TABLE Shipper
 DROP COLUMN Status;
+
 -- 4. Tính toán tổng doanh thu từ dịch vụ vận chuyển theo ngày.
 SELECT 
     ActualDate,
@@ -72,6 +73,7 @@ FROM Surcharge sur
 LEFT JOIN OrderDetails od ON sur.SurchargeID = od.SurchargeID
 GROUP BY sur.SurchargeID, sur.SurchargeName
 ;
+
 -- 7. Truy vấn tổng sản phẩm, tổng cân nặng và tổng chi phí liên quan của những đơn có từ 2 sp trở lên
 WITH OrderSummary AS (
   SELECT OrderID, COUNT(ItemID) AS TotalItems
